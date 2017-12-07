@@ -81,6 +81,13 @@ button
   &:active
     opacity: 0.5
 // checkbox label
-.form-check-label
-  cursor: pointer
+.form-check
+  padding-top: $input-btn-padding-y
+  .form-check-label
+    cursor: pointer
+// border-only Class
+.border-only-bottom
+  @extend .border, .border-top-0, .border-right-0, .border-left-0
+.modal-header
+  @extend .border-only-bottom, .border-primary
 // @import "tool_of_lore/layout"

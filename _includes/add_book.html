@@ -7,43 +7,53 @@
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title">Book required data</h5>
+				<h5 class="modal-title">Book</h5>
 			</div>
 			<div class="row card-body">
 				<div class="col">
-					<input type="text" class="form-control" placeholder="Title">
+					<input type="text" id="input-title" class="form-control" placeholder="Title">
 				</div>
 				<div class="col">
-					<input type="text" class="form-control" placeholder="Author(s)">
+					<input type="text" id="input-author" class="form-control" placeholder="Author(s)">
+					<small class="form-text text-muted">Author name or comma separated list</small>
+				</div>
+				<div class="w-100"></div>
+				<div class="col">
+					<button type="button" id="ol-search" class="btn btn-sm btn-secondary">
+						Search Openlibrary
+					</button>
 				</div>
 			</div>
+			<ul class="list-group list-group-flush" id="ol-results"></ul>
 			<div class="modal-header">
-				<h5 class="modal-title">Book details (optional)</h5>
+				<h5 class="modal-title">Details</h5>
 			</div>
 			<div class="row card-body">
 				<div class="col">
-					<input type="text" class="form-control" placeholder="Publisher(s)">
+					<input type="text" class="form-control" id="input-publishers" placeholder="Publisher(s)">
+					<small class="form-text text-muted">Publisher or comma separated list</small>
 				</div>
 				<div class="col">
-					<input type="text" class="form-control" placeholder="Publish year">
-				</div>
-				<div class="w-100"></div>
-				<div class="col">
-					<input type="text" class="form-control" placeholder="ISBN">
-				</div>
-				<div class="col">
-					<input type="text" class="form-control" placeholder="Open Library key">
+					<input type="text" class="form-control" id="input-publish_year" placeholder="Publish year">
 				</div>
 				<div class="w-100"></div>
 				<div class="col">
-					<input type="text" class="form-control" placeholder="Cover URL">
+					<input type="text" class="form-control" id="input-isbn" placeholder="ISBN">
+				</div>
+				<div class="col">
+					<input type="text" class="form-control" id="input-edition_key" placeholder="Open Library key">
+				</div>
+				<div class="w-100"></div>
+				<div class="col">
+					<input type="text" class="form-control" id="input-cover" placeholder="Cover URL">
 				</div>
 				<div class="col">
 					<input type="text" class="form-control" placeholder="Subjects">
+					<small class="form-text text-muted">Comma separated list</small>
 				</div>
 			</div>
 			<div class="modal-header">
-				<h5 class="modal-title">Reading details (personal)</h5>
+				<h5 class="modal-title">Reading</h5>
 			</div>
 			<div class="row card-body">
 				<div class="col">
@@ -59,9 +69,22 @@
 						<option>Ebook</option>
 						<option>Audiobook</option>
 					</select>
+					<small class="form-text text-muted">Book support</small>
 				</div>
 				<div class="col">
+					<input type="text" class="form-control" placeholder="Price">
+				</div>
+				<div class="w-100"></div>
+				<div class="col">
 					<input type="text" class="form-control" placeholder="Category">
+				</div>
+				<div class="col">
+					<div class="form-check">
+						<label class="form-check-label">
+							<input type="checkbox" class="form-check-input">
+							Fiction
+						</label>
+					</div>
 				</div>
 				<div class="w-100"></div>
 				<div class="col">
@@ -84,12 +107,7 @@
 					</div>
 				</div>
 				<div class="col">
-					<div class="form-check">
-						<label class="form-check-label">
-							<input type="checkbox" class="form-check-input">
-							Fiction
-						</label>
-					</div>
+
 				</div>
 			</div>
 		</div>
