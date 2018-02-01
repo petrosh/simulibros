@@ -1,9 +1,18 @@
----
----
-console.log 'jQuery:', try $().jquery catch e then 'none'
-
-load = (ol_key) ->
-	console.log ol_key
+loading = (s) ->
+	results = $ "#ol-results"
+	search = $ "#ol-search"
+	if s
+		# Clear results
+		results.html ''
+		# Clear input valid
+		# Change button state
+		search.prop {disabled: true}
+		search.attr("data-cache", search.text() )
+		search.text "Loading"
+	else
+		search.prop {disabled: false}
+		search.text search.attr "data-cahce"
+	return
 
 olRequest = () ->
 	search_string = $.grep([
@@ -11,16 +20,12 @@ olRequest = () ->
 		$('#input-author').val().trim().replace /\s/g, "+"
 	], Boolean).join '+'
 	if search_string
-		# beforeSend
-		$("#ol-results").html ''
-		$("#ol-search").prop {disabled: true}
-		cache = $("#ol-search").text()
-		$("#ol-search").text "Loading"
+		# Loading
+		loading(1)
 		# Ajax
 		$.getJSON "http://openlibrary.org/search.json?q=#{search_string}", (data) ->
 			# Completed
-			$("#ol-search").prop {disabled: false}
-			$("#ol-search").text cache
+			loading(0)
 			# Check no data
 			if data.docs.length == 0
 				$("#ol-results").append $ "<li class='list-group-item'>No results</li>"
@@ -36,23 +41,48 @@ olRequest = () ->
 			return
 	return
 
-$ '#ol-search'
-	.on "click", olRequest
-	
-$ '#input-title, #input-author'
-	.keypress (e) -> if e.which == 13 then olRequest()
-
 $ '#ol-results'
 	.on "click", "a", (e) ->
 		e.preventDefault()
-		$("#ol-results").html ''
+		loading 1
 		ol_key = this.href.match(/([^\/]*)\/*$/)[1]
 		$.getJSON "http://openlibrary.org/api/books?bibkeys=#{ol_key}&format=json&jscmd=data", (data) ->
+			loading 0
 			book = data[ol_key]
 			$("#input-author").val book.authors.map (a) -> return a.name
-			$("#input-title").val book.title
+				.addClass "is-valid"
+			$ "#input-title"
+				.val book.title
+					.addClass "is-valid"
 			$("#input-publishers").val book.publishers.map (p) -> return p.name
+				.addClass "is-valid"
 			$("#input-publish_year").val book.publish_date
+				.addClass "is-valid"
 			$("#input-edition_key").val book.identifiers.openlibrary[0]
+				.addClass "is-valid"
 			$("#input-isbn").val book.identifiers.isbn_10[0]
+				.addClass "is-valid"
 			$("#input-cover").val book.cover.medium || ''
+				.addClass "is-valid"
+
+$ () ->
+	# Initialize datepicker
+	$('[data-toggle="datepicker"]').datepicker {
+		autoHide: true
+		zIndex: 2048
+		format: 'yyyy-mm-dd'
+	}
+	# Enable currecy button
+	if $('#button-currency').length and $('a[data-currency]').length
+		$ 'a[data-currency]'
+			.on "click", (e) ->
+				new_currency = $(e.target).attr "data-currency"
+				$('#button-currency').text $('#button-currency').text().slice(0, -1) + new_currency
+	# Openlibrary request
+	# olRequest onclick
+	$ '#ol-search'
+		.on "click", olRequest
+	# olRequest input ENTER
+	$ '#input-title, #input-author'
+		.keypress (e) -> if e.which == 13 then olRequest()
+	return

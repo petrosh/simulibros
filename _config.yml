@@ -1,3 +1,37 @@
+title: Simulibros
+description: Track and Share your readings 📚
+
 plugins:
   - jekyll-default-layout
   - jekyll-coffeescript
+
+assets:
+  -
+    name: jQuery
+    js: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js
+    repository: https://github.com/jquery/jquery
+  -
+    name: Popper.js
+    js: https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js
+    repository: https://github.com/FezVrasta/popper.js
+  -
+    name: Bootstrap
+    js: https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js
+    repository: https://github.com/twbs/bootstrap
+  -
+    name: Lz-Sting
+    js: https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.js
+    repository: https://github.com/pieroxy/lz-string
+  -
+    name: yaml.js
+    js: https://cdnjs.cloudflare.com/ajax/libs/yamljs/0.3.0/yaml.min.js
+    repository: https://github.com/jeremyfa/yaml.js.git
+  -
+    name: Datepicker
+    js: https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.4/datepicker.js
+    css: https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.4/datepicker.css
+    repository: https://fengyuanchen.github.io/datepicker/
+  -
+    name: Clipboard.js
+    js: https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js
+    repository: https://github.com/zenorocha/clipboard.js

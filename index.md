@@ -3,4 +3,4 @@ title: Simulibros
 description: Track and Share your readings 📚
 ---
 
-{% include add_book.html %}
+{% include simulibros/form.html data_file='libros.yml' %}

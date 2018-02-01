@@ -1,0 +1,18 @@
+<form class="widget-simulibros">
+  <fieldset>
+    {%- for field in site.data.libros_schema -%}
+    {% if field.name %}
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="label_{{ field.name | slugify }}_{{ forloop.index }}">{{ field.name }}</span>
+        </div>
+        <input type="{{ field.type | default: 'text' }}" class="form-control" aria-label="{{ field.name | slugify | replace: '-', '_' }}" aria-describedby="label_{{ field.name | slugify }}_{{ forloop.index }}">
+      </div>
+    </div>
+    {% elsif field.include %}
+      {% include {{ field.include }} data_file=include.data_file %}
+    {% endif %}
+    {%- endfor -%}
+  </fieldset>
+</form>

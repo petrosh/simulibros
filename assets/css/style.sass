@@ -4,51 +4,23 @@
 //
 // Bootsrap_init
 //
-@import "bootstrap/functions"
-@import "bootstrap/variables"
 
 //
 // Bootsrap Override variables
 //
 $font-family-sans-serif: "Helvetica Neue", Arial, sans-serif
 $font-family-base: $font-family-sans-serif
-$frame-color: $gray-200
+$headings-font-weight: 300
+// 211 is primary-blue, 20% is light blue, 93% is whitey
+$frame-color: hsl(211, 20%, 93%)
+$font-size-base: 1.2rem
+$form-check-input-margin-y: 0.45rem
+$code-font-size: 80%
 
 //
-// Bootstrap_end
+// Bootstrap
 //
-@import "bootstrap/mixins"
-@import "bootstrap/print"
-@import "bootstrap/reboot"
-@import "bootstrap/type"
-@import "bootstrap/images"
-@import "bootstrap/code"
-@import "bootstrap/grid"
-@import "bootstrap/tables"
-@import "bootstrap/forms"
-@import "bootstrap/buttons"
-@import "bootstrap/transitions"
-@import "bootstrap/dropdown"
-@import "bootstrap/button-group"
-@import "bootstrap/input-group"
-@import "bootstrap/custom-forms"
-@import "bootstrap/nav"
-@import "bootstrap/navbar"
-@import "bootstrap/card"
-@import "bootstrap/breadcrumb"
-@import "bootstrap/pagination"
-@import "bootstrap/badge"
-@import "bootstrap/jumbotron"
-@import "bootstrap/alert"
-@import "bootstrap/progress"
-@import "bootstrap/media"
-@import "bootstrap/list-group"
-@import "bootstrap/close"
-@import "bootstrap/modal"
-@import "bootstrap/tooltip"
-@import "bootstrap/popover"
-@import "bootstrap/carousel"
-@import "bootstrap/utilities"
+@import "bootstrap/bootstrap"
 
 //
 // Simulibros
@@ -59,7 +31,10 @@ html
   background-color: $frame-color
 // header
 header
-  @extend .mb-0, .jumbotron, .rounded-0, .py-3
+  @extend .mb-0, .py-3
+  background-color: $frame-color
+  h1
+    @extend .text-center
 // main
 main
   margin: $spacer * 2 0 $spacer * 3
@@ -67,9 +42,8 @@ main
 footer
   padding: $spacer * 2 0
   background-color: $frame-color
-// Grid
-.w-100
-  @extend .mb-3
+  .container > :last-child
+    @extend .mb-0
 // Type
 h1
   small
@@ -90,4 +64,57 @@ button
   @extend .border, .border-top-0, .border-right-0, .border-left-0
 .modal-header
   @extend .border-only-bottom, .border-primary
+
+// DATE picker
+.datepicker-container
+  font-size: $font-size-sm
+
+// ADD-BOOK
+#input-form
+  h3
+    @extend .py-3
+  small
+    @extend .form-text, .text-muted, .ml-1
+
+// SIMULIBROS
+form.widget-simulibros
+  // Bigger font-size give problems with date-type
+  input[type="date"]
+    font-size: 1rem
+  // Style labels
+  .input-group-prepend
+    min-width: 20%
+    @extend .d-block
+  // Style buttons
+  [type='submit']
+    @extend .btn, .btn-secondary
+  [type='reset']
+    @extend .btn, .btn-outline-secondary
+  // Style results
+  .search-results
+    & > a
+      @extend .list-group-item, .list-group-item-action, .flex-column, .align-items-start
+      small
+        @extend .text-muted
+      .libros-image-container img
+        @extend .card-img-top
+      .libros-title,
+      .libros-author
+        @extend .mb-1
+      .libros-header
+        @extend .d-flex, .w-100, .justify-content-between
+      &:last-child
+        @extend .mb-3
+      &.no-results
+        @extend .disabled
+
+// RENDER YML
+.yml-render
+  button
+    @extend .btn, .btn-sm
+  .commit-button
+    @extend .btn-secondary
+  .copy-button
+    @extend .btn-outline-secondary 
+
 // @import "tool_of_lore/layout"

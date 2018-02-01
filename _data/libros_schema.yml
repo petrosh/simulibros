@@ -1,0 +1,22 @@
+-
+  name: Title
+-
+  name: Author
+-
+  include: simulibros/search.html
+-
+  include: simulibros/results.html
+-
+  name: Image URL
+-
+  name: Year
+-
+  name: Publisher
+-
+  name: Start reading
+  type: date
+-
+  name: End reading
+  type: date
+-
+  include: yml/render.html
