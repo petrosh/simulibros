@@ -6,6 +6,9 @@ for container in $ '.yml-render'
   obj = {}
   form = div.parents 'form:first'
   form.change () -> update()
+  # form.on 'reset', () ->
+  #   form.find('.form-control').val('').change()
+  #   true
   new Clipboard copy[0], { target: () -> yml[0] }
   commit.on 'click', (e) ->
     e.preventDefault()
@@ -14,6 +17,6 @@ for container in $ '.yml-render'
   update = () ->
     for input in form.find '.form-control'
       key = $(input).attr 'aria-label'
-      if $(input).val() then obj[key] = $(input).val()
+      if $(input).val() and key then obj[key] = $(input).val()
     yml.html YAML.stringify [ obj ]
   true

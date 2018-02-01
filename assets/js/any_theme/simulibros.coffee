@@ -3,6 +3,7 @@ libros = (div) ->
   title = form.find '[aria-label="title"]'
   author = form.find '[aria-label="author"]'
   submit_ol = form.find '[type="submit"]'
+  reset = form.find '[type="reset"]'
   results = form.find '.search-results'
   fieldset = form.find 'fieldset'
   loading = (state) ->
@@ -78,12 +79,14 @@ libros = (div) ->
       form.find("[aria-label='#{field}']").val data[field]
         .change()
       true
-      # libros.update_yml()
     true
   # Init datepicker
   form.find('[type="date"]').datepicker {autoHide: true, zIndex: 2048, format: 'yyyy-mm-dd' }
   # Bind events
   submit_ol.on 'click', submit_ol_event
+  reset.on 'click', () ->
+    results.html ''
+    true
   [title, author].map (input) ->
     input.keypress (e) -> if e.which == 13 then submit_ol_event e
   results.on "click", "a", book_event
