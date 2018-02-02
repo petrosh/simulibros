@@ -25,7 +25,6 @@ for container in $ '.yml-render'
       headers: {"Authorization": "token #{storage.get('token')}"}
       success: success_sha
       error: error_sha
-    true
     # PUT /repos/:owner/:repo/contents/:path
     # post: message, content, SHA
     console.log commit.data 'file'
