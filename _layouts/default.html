@@ -12,7 +12,7 @@
 {% endfor %}
 
 <!-- CSS -->
-<link rel="stylesheet" href="/assets/css/style.css">
+<link rel="stylesheet" href="{{ '/assets/css/style.css' | absolute_url }}">
 
 <!-- Javascripts CDN -->
 {% for asset in site.assets %}
@@ -20,7 +20,7 @@
 {% endfor %}
 
 <!-- script.js is deferred -->
-<script src="/assets/js/script.js" defer></script>
+<script src="{{ '/assets/js/script.js' | absolute_url }}" defer></script>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">

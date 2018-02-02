@@ -14,8 +14,8 @@ for container in $ '.yml-render'
   success_sha = (data, status) ->
     console.log data
   error_sha = (request, status, error) ->
-    console.log status, error
     if error == 'Not Found' then console.log 'create'
+    console.log status, error
   commit.on 'click', (e) ->
     e.preventDefault()
     # GET /repos/:owner/:repo/contents/:path
@@ -41,4 +41,3 @@ for container in $ '.yml-render'
       if $(input).val() != '' and key then obj[key] = $(input).val()
     yml.html if Object.keys(obj).length then YAML.stringify [obj] else ''
     true
-  true
