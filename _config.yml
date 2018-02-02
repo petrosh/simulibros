@@ -4,6 +4,7 @@ description: Track and Share your readings 📚
 plugins:
   - jekyll-default-layout
   - jekyll-coffeescript
+  - jekyll-github-metadata
 
 assets:
   -

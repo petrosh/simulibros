@@ -10,11 +10,11 @@ libros = (div) ->
     if state
       results.html ''
       fieldset.prop {disabled: true}
-      submit_ol.data 'cache', submit_ol.text()
-      submit_ol.text 'Loading'
+      submit_ol.data 'cache', submit_ol.val()
+      submit_ol.val 'Loading'
     else
       fieldset.prop {disabled: false}
-      submit_ol.text submit_ol.data 'cache'
+      submit_ol.val submit_ol.data 'cache'
     true
   append_book = (i, item) ->
     # Parse book properties
@@ -83,12 +83,8 @@ libros = (div) ->
   # Init datepicker
   form.find('[type="date"]').datepicker {autoHide: true, zIndex: 2048, format: 'yyyy-mm-dd' }
   # Bind events
-  submit_ol.on 'click', submit_ol_event
-  reset.on 'click', () ->
-    results.html ''
-    true
-  [title, author].map (input) ->
-    input.keypress (e) -> if e.which == 13 then submit_ol_event e
+  form.on 'submit', submit_ol_event
+  reset.on 'click', () -> results.html ''
   results.on "click", "a", book_event
   true
 

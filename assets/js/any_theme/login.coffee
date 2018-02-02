@@ -63,8 +63,8 @@ login = (div) ->
     request: () ->
       field.removeClass 'is-invalid'
       submit.prop 'disabled', true
-      $.ajax 'https://api.github.com/user',
-        type: 'GET'
+      $.ajax '{{ site.github.api_url }}/user',
+        method: 'GET'
         headers: {"Authorization": "token #{field.val()}"}
         success: events.success
         error: events.error
