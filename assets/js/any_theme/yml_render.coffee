@@ -11,6 +11,11 @@ for container in $ '.yml-render'
   # Clipboard init
   new Clipboard copy[0], { target: () -> yml[0] }
   # Events
+  success_sha = (data, status) ->
+    console.log data
+  error_sha = (request, status, error) ->
+    console.log status, error
+    if error == 'Not Found' then console.log 'create'
   commit.on 'click', (e) ->
     e.preventDefault()
     # GET /repos/:owner/:repo/contents/:path
@@ -18,20 +23,13 @@ for container in $ '.yml-render'
     $.ajax "{{ site.github.api_url }}/{{ site.github.repository_nwo }}/contents/_data/#{commit.data('file')}",
       method: 'GET'
       headers: {"Authorization": "token #{storage.get('token')}"}
-      success: events.success
-      error: events.error
+      success: success_sha
+      error: error_sha
     true
     # PUT /repos/:owner/:repo/contents/:path
     # post: message, content, SHA
     console.log commit.data 'file'
     true
-  success = (data, status) ->
-    console.log data
-  error: (request, status, error) ->
-    # events.warn "#{status}: #{error}"
-    # submit.prop 'disabled', false
-    # true
-    console.log status, error
   reset = () ->
     $(input).val '' for input in form.find '.form-control'
     update()
