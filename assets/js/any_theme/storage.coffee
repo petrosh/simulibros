@@ -32,7 +32,6 @@ storage = {
     if key?
       delete obj[key]
       storage.store obj
-      true
     else
       localStorage.removeItem 'storage'
     true
@@ -44,15 +43,13 @@ storage = {
       storage.store obj
       return storage
     else
-      false
-    true
+      return false
   get: (key) ->
     if !localStorage.getItem("storage")? then storage.init()
     if key?
       storage.get()[key]
     else
       JSON.parse LZString.decompressFromBase64 localStorage.getItem "storage"
-    true
   store: (obj) ->
     localStorage.setItem 'storage', LZString.compressToBase64 JSON.stringify obj
 }
