@@ -12,7 +12,7 @@
 {% endfor %}
 
 <!-- CSS -->
-<link rel="stylesheet" href="{{ '/assets/css/style.css' | absolute_url }}">
+<link rel="stylesheet" href="{{ site.baseurl }}/assets/css/style.css">
 
 <!-- Javascripts CDN -->
 {% for asset in site.assets %}
@@ -20,7 +20,7 @@
 {% endfor %}
 
 <!-- script.js is deferred -->
-<script src="{{ '/assets/js/script.js' | absolute_url }}" defer></script>
+<script src="{{ site.baseurl }}/assets/js/script.js" defer></script>
 
 <!-- Navbar -->
 <nav class="navbar navbar-expand-md navbar-dark bg-primary">
@@ -33,14 +33,14 @@
 			<ul class="navbar-nav mr-auto">
 				{% for nav in site.data.navbar.left %}{% assign link = site.pages | where:'title', nav %}
 				<li class="nav-item{% if page.url == link[0].url %} active{% endif %}">
-					<a class="nav-link" href="{{ link[0].url | default: '#' }}"{% if link.size == 0 %} id="{{ nav | slugify }}"{% endif %}>{{ nav }}{% if page.url == link[0].url %} <span class="sr-only">(current)</span>{% endif %}</a>
+					<a class="nav-link" href="{{ site.baseurl }}/{{ link[0].url | default: '#' }}"{% if link.size == 0 %} id="{{ nav | slugify }}"{% endif %}>{{ nav }}{% if page.url == link[0].url %} <span class="sr-only">(current)</span>{% endif %}</a>
 				</li>
 				{% endfor %}
 			</ul>
 			<ul class="navbar-nav my-lg-0">
 				{% for nav in site.data.navbar.right %}{% assign link = site.pages | where:'title', nav %}
 				<li class="nav-item{% if page.url == link[0].url %} active{% endif %}">
-					<a class="nav-link" href="{{ link[0].url | default: '#' }}"{% if link.size == 0 %} id="{{ nav | slugify }}"{% endif %}>{{ nav }}{% if page.url == link[0].url %} <span class="sr-only">(current)</span>{% endif %}</a>
+					<a class="nav-link" href="{{ site.baseurl }}/{{ link[0].url | default: '#' }}"{% if link.size == 0 %} id="{{ nav | slugify }}"{% endif %}>{{ nav }}{% if page.url == link[0].url %} <span class="sr-only">(current)</span>{% endif %}</a>
 				</li>
 				{% endfor %}
 			</ul>

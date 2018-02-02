@@ -1,5 +1,6 @@
 title: Simulibros
 description: Track and Share your readings 📚
+baseurl: /simulibros
 
 plugins:
   - jekyll-default-layout
