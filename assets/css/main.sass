@@ -26,55 +26,38 @@ $code-font-size: 80%
 // Simulibros
 //
 
-// layout
-html
-  background-color: $frame-color
-// header
-header
-  @extend .mb-0, .py-3
-  background-color: $frame-color
-  h1
-    @extend .text-center
 // main
 main
-  margin: $spacer * 2 0 $spacer * 3
+  margin: $spacer * 3 0
 // footer
 footer
   padding: $spacer * 2 0
   background-color: $frame-color
   .container > :last-child
     @extend .mb-0
-// Type
-h1
-  small
-    font-weight: inherit
+
 // buttons
-button
-  &:hover
-    cursor: pointer
-  &:active
-    opacity: 0.5
+// button
+//   &:hover
+//     cursor: pointer
+//   &:active
+//     opacity: 0.5
 // checkbox label
 .form-check
   padding-top: $input-btn-padding-y
   .form-check-label
     cursor: pointer
-// border-only Class
-.border-only-bottom
-  @extend .border, .border-top-0, .border-right-0, .border-left-0
-.modal-header
-  @extend .border-only-bottom, .border-primary
 
 // DATE picker
-.datepicker-container
-  font-size: $font-size-sm
+// .datepicker-container
+//   font-size: $font-size-sm
 
 // ADD-BOOK
-#input-form
-  h3
-    @extend .py-3
-  small
-    @extend .form-text, .text-muted, .ml-1
+// #input-form
+//   h3
+//     @extend .py-3
+//   small
+//     @extend .form-text, .text-muted, .ml-1
 
 // SIMULIBROS
 form.widget-simulibros

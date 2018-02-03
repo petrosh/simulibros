@@ -31,7 +31,7 @@ for container in $ '.yml-render'
     #   error: error_create
     true
   error_sha = (request, status, error) ->
-    if error == 'Not Found' then create_file
+    if error == 'Not Found' then create_file()
     console.log status, error
   create_file = () ->
     # PUT /repos/:owner/:repo/contents/:path
