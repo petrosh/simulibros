@@ -4,7 +4,7 @@ for container in $ '.yml-render'
   yml = div.find 'code'
   copy = div.find '.copy-button'
   commit = div.find '.commit-button'
-  commit_url = "{{ site.github.api_url }}/{{ site.github.repository_nwo }}/contents/_data/#{commit.data('file')}"
+  commit_url = "{{ site.github.api_url }}/repos/{{ site.github.repository_nwo }}/contents/_data/#{commit.data('file')}"
   form = div.parents 'form:first'
   # Form events
   form.change () -> update()
@@ -42,6 +42,7 @@ for container in $ '.yml-render'
       data:
         message: "Create /_data/#{commit.data('file')}"
         content: b64e ''
+        # path: "_data/#{commit.data('file')}"
       success: success_sha
       error: error_create
     true
