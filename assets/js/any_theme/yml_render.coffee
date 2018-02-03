@@ -41,7 +41,7 @@ for container in $ '.yml-render'
       headers: "Authorization": "token #{storage.get('token')}"
       data:
         message: "Create /_data/#{commit.data('file')}"
-        content: b64e ''
+        content: b64e 'bad request?'
         # path: "_data/#{commit.data('file')}"
       success: success_sha
       error: error_create
