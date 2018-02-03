@@ -27,12 +27,12 @@ assets:
   -
     name: yaml.js
     js: https://cdnjs.cloudflare.com/ajax/libs/yamljs/0.3.0/yaml.min.js
-    repository: https://github.com/jeremyfa/yaml.js.git
+    repository: https://github.com/jeremyfa/yaml.js
   -
     name: Datepicker
     js: https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.4/datepicker.js
     css: https://cdnjs.cloudflare.com/ajax/libs/datepicker/0.6.4/datepicker.css
-    repository: https://fengyuanchen.github.io/datepicker/
+    repository: https://github.com/fengyuanchen/datepicker
   -
     name: Clipboard.js
     js: https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js

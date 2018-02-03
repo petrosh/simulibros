@@ -1,7 +1,7 @@
 ###
   Store `storage` object in `localStorage`, LZ compressed to Base 64.
   @example
-  // Initialize storage in localStorage
+  // Initialize storage in localStorage (initialized anyway the first `get` or `set`)
   storage.init()
   @example
   // Get a key's value or whole object
