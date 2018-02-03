@@ -38,7 +38,9 @@ for container in $ '.yml-render'
     # message, content
     $.ajax commit_url,
       method: 'PUT'
-      headers: "Authorization": "token #{storage.get('token')}"
+      headers:
+        "Authorization": "token #{storage.get('token')}"
+        "Accept": "application/vnd.github.v3+raw"
       data:
         message: "Create /_data/#{commit.data('file')}"
         content: b64e 'bad request?'
