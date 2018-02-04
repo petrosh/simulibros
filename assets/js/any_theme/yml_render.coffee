@@ -75,7 +75,7 @@ yml_render = (container) ->
       if $(input).val() != '' and key then obj[key] = $(input).val()
     if Object.keys(obj).length
       if !obj.id?
-        obj[id] = Math.round(new Date().getTime() / 1000)
+        obj['id'] = Math.round(new Date().getTime() / 1000)
       yml.html YAML.stringify [obj]
     else yml.html ''
     true
