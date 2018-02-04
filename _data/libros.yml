@@ -1,1 +1,6 @@
-[object Object],[object Object]
+[object Object],[object Object]-
+    title: 'Dead man'
+    author: 'Joe Gores'
+    image_url: 'http://covers.openlibrary.org/b/olid/OL1409907M-M.jpg'
+    year: '1993'
+    publisher: 'Mysterious Press'
