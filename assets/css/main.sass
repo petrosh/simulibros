@@ -29,6 +29,10 @@ $code-font-size: 80%
 // main
 main
   margin: $spacer * 3 0
+  h1:not(:first-child)
+    @extend .my-4
+  h1:first-child
+    margin-bottom: $spacer * 2
 // footer
 footer
   padding: $spacer * 2 0
@@ -96,8 +100,8 @@ form.widget-simulibros
   button
     @extend .btn, .btn-sm
   .commit-button
-    @extend .btn-secondary
+    @extend .btn, .btn-secondary
   .copy-button
-    @extend .btn-outline-secondary 
+    @extend .btn, .btn-outline-secondary 
 
 @import "syntax.css"

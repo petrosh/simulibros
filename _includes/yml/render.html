@@ -1,9 +1,7 @@
 <div class="yml-render">
   <pre class="highlight"><code class="language-txt copy-text"></code></pre>
   <div class="form-group">
-    <button type="button" class="commit-button"{% if include.data_file %} data-file="{{ include.data_file }}"{% endif %}>
-      Commit
-    </button>
+    <input type="button" value="Commit" class="commit-button"{% if include.data_file %} data-file="{{ include.data_file }}"{% endif %}>
     <button type="button" class="copy-button">
       Copy to clipboard
     </button>

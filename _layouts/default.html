@@ -18,7 +18,7 @@
 {% for asset in site.assets %}
 {% if asset.js %}<script src="{{ asset.js }}"></script>{% endif %}
 {% endfor %}
-
+<script src="{{ site.baseurl }}/assets/js/base64.min.js"></script>
 <!-- script.js is deferred -->
 <script src="{{ site.baseurl }}/assets/js/script.js" defer></script>
 

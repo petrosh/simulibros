@@ -10,3 +10,7 @@ description: Track and Share your readings 📚
 ```
 
 {% include simulibros/form.html data_file='libros.yml' %}
+
+{%- for b in site.data.libros -%}
+- {{ l.title }} by {{ l.author }} ({{ l.year }})
+{%- endfor -%}
