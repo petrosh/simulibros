@@ -28,7 +28,7 @@ remove_id = (link) ->
       data: JSON.stringify {
         message: "Remove item id=#{id} from /_data/#{file}"
         sha: data.sha
-        content: Base64.encode(YAML.stringify book_array, null, 2)
+        content: Base64.encode(if book_array.length then YAML.stringify book_array, null, 2 else '')
       }
       success: done
       error: error
