@@ -9,7 +9,7 @@
 {%- for item in list -%}
 {% if include.list %}<a href="{{ item.link }}">{% endif %}
 <div class="row">
-  <div class="libros-image-container pr-0">{% if item.image_url %}
+  <div class="libros-image-container pr-0{% if item.image_url %} col-2{% endif %}">{% if item.image_url %}
     <img src="{{ item.image_url }}" alt="{{ item.title }}">{% endif %}</div>
   <div class="col">
     <div class="libros-header">
