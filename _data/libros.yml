@@ -1,21 +1,3 @@
 -
-  title: 'Me Cheeta'
-  author: Cheeta
-  image_url: 'http://covers.openlibrary.org/b/olid/OL24323970M-M.jpg'
-  year: '2009'
-  publisher: HarperCollins
-  id: 1517851875
--
-  title: Zanzibar
-  author: 'Burton, Richard Sir'
-  image_url: 'http://covers.openlibrary.org/b/olid/OL8423513M-M.jpg'
-  year: '1972'
-  publisher: 'University Press of the Pacific'
-  id: 1517851982
--
-  title: 'Rin Tin Tin'
-  author: 'Susan Orlean'
-  image_url: 'http://covers.openlibrary.org/b/olid/OL24994804M-M.jpg'
-  year: '2011'
-  publisher: 'Simon &amp; Schuster'
-  id: 1517852346
+  - {title: 'Me Cheeta', author: Cheeta, image_url: 'http://covers.openlibrary.org/b/olid/OL24323970M-M.jpg', year: '2009', publisher: HarperCollins, id: 1517851875}
+  - {title: 'Rin Tin Tin', author: 'Susan Orlean', image_url: 'http://covers.openlibrary.org/b/olid/OL24994804M-M.jpg', year: '2011', publisher: 'Simon &amp; Schuster', id: 1517852346}
