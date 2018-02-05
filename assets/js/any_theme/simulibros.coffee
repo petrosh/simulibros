@@ -24,11 +24,11 @@ libros = (div) ->
     }
     # Append data to template
     if book.olid?
-      result = $ '<a>', {
-          'href': book.olid
-          'data-book': LZString.compressToBase64 JSON.stringify book
-          'html': $('#template-book').html()
-        }
+      book.link = "https://openlibrary.org/books/#{book.olid}"
+      result = $ '<a>',
+        'href': book.link
+        'data-book': LZString.compressToBase64 JSON.stringify book
+        'html': $('#template-book').html()
       ['title', 'author', 'year', 'publisher'].map (field) ->
         result.find(".libros-#{field}").text book[field]
       if book.image_url

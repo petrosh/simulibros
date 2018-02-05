@@ -1,6 +1,19 @@
 <form class="widget-simulibros">
   <fieldset>
     {%- for field in site.data.libros_schema -%}
+    {%- comment -%}
+    field is Array
+    {%- endcomment -%}
+    {% if field[0].size %}
+    <div class="form-group">
+      {% for sub_field in field %}
+      <input type="{{ sub_field.type | default: 'button' }}" aria-label="{{ sub_field.name | slugify | replace: '-', '_' }}" value="{{ sub_field.name }}">
+      {% endfor %}
+    </div>
+    {% endif %}
+    {%- comment -%}
+    field.name: render input-group
+    {%- endcomment -%}
     {% if field.name %}
     <div class="form-group">
       <div class="input-group">
@@ -10,6 +23,9 @@
         <input type="{{ field.type | default: 'text' }}" class="form-control" aria-label="{{ field.name | slugify | replace: '-', '_' }}" aria-describedby="label_{{ field.name | slugify }}_{{ forloop.index }}">
       </div>
     </div>
+    {%- comment -%}
+    field.include: render an include
+    {%- endcomment -%}
     {% elsif field.include %}
       {% include {{ field.include }} data_file=include.data_file %}
     {% endif %}

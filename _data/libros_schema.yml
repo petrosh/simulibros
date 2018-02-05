@@ -3,9 +3,14 @@
 -
   name: Author
 -
-  include: simulibros/search.html
+  -
+    name: Search Openlibrary
+    type: submit
+  -
+    name: Reset
+    type: reset
 -
-  include: simulibros/results.html
+  include: simulibros/template.html
 -
   name: Image URL
 -

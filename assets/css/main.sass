@@ -33,10 +33,10 @@ html
 main
   background-color: $body-bg
   margin: $spacer * 3 0
-  h1:not(:first-child)
-    @extend .my-4
+  h1
+    @extend .mb-4, .mt-5
   h1:first-child
-    margin-bottom: $spacer * 2
+    @extend .mt-0
 // footer
 footer
   padding: $spacer * 2 0
@@ -67,6 +67,13 @@ footer
 //   small
 //     @extend .form-text, .text-muted, .ml-1
 
+// BUTTONS
+button,
+input[type="submit"],
+input[type="button"],
+input[type="reset"]
+  @extend .btn
+
 // SIMULIBROS
 form.widget-simulibros
   // Bigger font-size give problems with date-type
@@ -77,35 +84,36 @@ form.widget-simulibros
     min-width: 20%
     @extend .d-block
   // Style buttons
-  [type='submit']
-    @extend .btn, .btn-secondary
+  [aria-label='search_openlibrary']
+    @extend .btn-secondary
+  [aria-label='search_goodreads']
+    @extend .btn-warning
   [type='reset']
-    @extend .btn, .btn-outline-secondary
-  // Style results
-  .search-results
-    & > a
-      @extend .list-group-item, .list-group-item-action, .flex-column, .align-items-start
-      small
-        @extend .text-muted
-      .libros-image-container img
-        @extend .card-img-top
-      .libros-title,
-      .libros-author
-        @extend .mb-1
-      .libros-header
-        @extend .d-flex, .w-100, .justify-content-between
-      &:last-child
-        @extend .mb-3
-      &.no-results
-        @extend .disabled
+    @extend .btn-outline-secondary
+
+// Style results
+.search-results
+  & > a
+    @extend .list-group-item, .list-group-item-action, .flex-column, .align-items-start
+    small
+      @extend .text-muted
+    .libros-image-container img
+      @extend .card-img-top
+    .libros-title,
+    .libros-author
+      @extend .mb-1
+    .libros-header
+      @extend .d-flex, .w-100, .justify-content-between
+    &:last-child
+      @extend .mb-3
+    &.no-results
+      @extend .disabled
 
 // RENDER YML
 .yml-render
-  button
-    @extend .btn, .btn-sm
   .commit-button
-    @extend .btn, .btn-secondary
+    @extend .btn-secondary
   .copy-button
-    @extend .btn, .btn-outline-secondary 
+    @extend .btn-outline-secondary 
 
 @import "syntax.css"

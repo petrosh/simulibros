@@ -12,10 +12,11 @@ yml_render = (container) ->
   # Form events
   form.change () -> render()
   form.on 'reset', () -> reset()
+  form.on 'click', '.commit-button', (e) -> get_sha e
   # Clipboard init
   new Clipboard copy[0], { target: () -> yml[0] }
   # Events
-  commit.on 'click', (e) ->
+  get_sha = (e) ->
     e.preventDefault()
     form_loading commit, 1
     # GET /repos/:owner/:repo/contents/:path
@@ -55,7 +56,7 @@ yml_render = (container) ->
       data: JSON.stringify {
         message: "Update /_data/#{commit.data('file')}"
         sha: data.sha
-        content: Base64.encode(Base64.decode data.content + yml.html())
+        content: Base64.encode(Base64.decode(data.content) + yml.html())
       }
       success: done
       error: error
@@ -66,7 +67,7 @@ yml_render = (container) ->
     console.log 'done'
   reset = () ->
     $(input).val '' for input in form.find '.form-control'
-    update()
+    render()
     true
   render = () ->
     obj = {}
@@ -76,7 +77,7 @@ yml_render = (container) ->
     if Object.keys(obj).length
       if !obj.id?
         obj['id'] = Math.round(new Date().getTime() / 1000)
-      yml.html YAML.stringify [obj]
+      yml.html YAML.stringify [obj], null, 2
     else yml.html ''
     true
 

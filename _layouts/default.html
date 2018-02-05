@@ -2,23 +2,36 @@
 <!DOCTYPE html>
 <title>{{ page.title }}</title>
 
-<!-- Required meta tags -->
+<!-- Meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta
+	data-repo-sha="{{ site.github.build_revision }}"
+	data-repo-nwo="{{ site.github.repository_nwo }}"
+	data-repo-url="{{ site.github.repository_url }}"
+	data-page-path="{{ page.path }}">
+<link rel="canonical" href="{{ page.url | absolute_url }}" />
 
 <!-- Css CDN -->
-{% for asset in site.assets %}
-{% if asset.css %}<link rel="stylesheet" href="{{ asset.css }}" />{% endif %}
+{%- for asset in site.assets -%}
+{% if asset.css %}
+<link rel="stylesheet" href="{{ asset.css }}" />
+{%- endif -%}
 {% endfor %}
 
 <!-- CSS -->
 <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/main.css">
 
 <!-- Javascripts CDN -->
-{% for asset in site.assets %}
-{% if asset.js %}<script src="{{ asset.js }}"></script>{% endif %}
+{%- for asset in site.assets -%}
+{% if asset.js %}
+<script src="{{ asset.js }}"></script>
+{%- endif -%}
 {% endfor %}
+
+<!-- Base 64 -->
 <script src="{{ site.baseurl }}/assets/js/base64.min.js"></script>
+
 <!-- script.js is deferred -->
 <script src="{{ site.baseurl }}/assets/js/script.js" defer></script>
 

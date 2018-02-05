@@ -1,0 +1,25 @@
+<!-- Libros list -->
+<div class="list-group search-results">
+{% if include.list %}
+  {%- assign list = include.list -%}
+{% else %}
+  {%- assign list = site.emptyArray | push: nil -%}
+</div><template id="template-book">
+{% endif %}
+{%- for item in list -%}
+{% if include.list %}<a href="{{ item.link }}">{% endif %}
+<div class="row">
+  <div class="libros-image-container pr-0">{% if item.image_url %}
+    <img src="{{ item.image_url }}" alt="{{ item.title }}">{% endif %}</div>
+  <div class="col">
+    <div class="libros-header">
+      <h5 class="libros-title">{{ item.title }}</h5>
+      <small class="libros-year">{{ item.year }}</small>
+    </div>
+    <p class="libros-author">{{ item.author }}</p>
+    <small class="libros-publisher">{{ item.publisher }}</small>
+  </div>
+</div>
+{% if include.list %}</a>{% endif %}
+{%- endfor -%}
+{%- if include.list -%}</div>{% else %}</template>{%- endif -%}
