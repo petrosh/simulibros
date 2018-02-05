@@ -5,3 +5,10 @@
   year: '2009'
   publisher: HarperCollins
   id: 1517851875
+-
+  title: Zanzibar
+  author: 'Burton, Richard Sir'
+  image_url: 'http://covers.openlibrary.org/b/olid/OL8423513M-M.jpg'
+  year: '1972'
+  publisher: 'University Press of the Pacific'
+  id: 1517851982
