@@ -1,10 +1,10 @@
 ---
-title: Docs
+title: Usage
 description: Track and Share your readings 📚
 permalink: /docs
 ---
 
-Varsion: `{{ site.github.build_revision | slice: 0, 7 }}`
+Version: `{{ site.github.build_revision | slice: 0, 7 }}`
 
 * toc
 {:toc}

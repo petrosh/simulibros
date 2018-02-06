@@ -30,9 +30,12 @@ yml_render = (container) ->
       error: error_sha
     true
   error_sha = (request, status, error) ->
-    if error == 'Not Found' then create_file()
     form_loading commit, 0
-    console.log status, error
+    if error == 'Not Found'
+      create_file()
+    else
+      modal_message "get_sha(): #{status} #{error}", 'danger'
+    true
   create_file = () ->
     # PUT /repos/:owner/:repo/contents/:path
     # message, content
@@ -43,12 +46,13 @@ yml_render = (container) ->
         message: "Create /_data/#{commit.data('file')}"
         content: Base64.encode yml.html()
       }
-      success: done
+      success: done 'File created'
       error: error
     true
   error = (request, status, error) ->
     form_loading commit, 0
-    console.log status, error
+    modal_message "create_file(): #{status} #{error}", 'danger'
+    true
   update_file = (data, status) ->
     $.ajax commit_url,
       method: 'PUT'
@@ -58,13 +62,14 @@ yml_render = (container) ->
         sha: data.sha
         content: Base64.encode(Base64.decode(data.content) + yml.html())
       }
-      success: done
+      success: done 'File updated'
       error: error
     true
-  done = () ->
+  done = (message) ->
     form_loading commit, 0
     reset()
-    console.log 'done'
+    modal_message message, 'success'
+    true
   reset = () ->
     $(input).val '' for input in form.find '.form-control'
     render()

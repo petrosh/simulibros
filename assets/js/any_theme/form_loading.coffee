@@ -3,11 +3,20 @@ form_loading = (element, state) ->
   fieldset = form.find 'fieldset'
   results = form.find '[class*=results]'
   if state
-    fieldset.prop {disabled: true}
-    results.html ''
-    element.data 'cache', element.val()
-    element.val 'Loading'
+    fieldset?.prop {disabled: true}
+    results?.html ''
+    if element.val()
+      element.data 'cache', element.val()
+      element.val 'Loading'
+    else
+      element.addClass 'disabled'
+      element.data 'cache', element.text()
+      element.text 'Loading'
   else
-    fieldset.prop {disabled: false}
-    element.val element.data 'cache'
+    fieldset?.prop {disabled: false}
+    if element.val()
+      element.val element.data 'cache'
+    else
+      element.text element.data 'cache'
+      element.removeClass 'disabled'
   true

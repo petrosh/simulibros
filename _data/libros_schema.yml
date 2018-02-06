@@ -18,6 +18,8 @@
 -
   name: Publisher
 -
+  name: Link
+-
   name: Start reading
   type: date
 -

@@ -1,23 +1,10 @@
-remove_id = (link) ->
-  trigger = $ link
-  id = trigger.data 'id'
-  file = trigger.data 'file'
-  commit_url = "{{ site.github.api_url }}/repos/{{ site.github.repository_nwo }}/contents/_data/#{file}"
-  get_sha = (e) ->
-    e.preventDefault()
-    # GET /repos/:owner/:repo/contents/:path
-    # get file SHA
-    $.ajax commit_url,
-      method: 'GET'
-      headers:
-        authorization: "token #{storage.get('token')}"
-        accept: "application/vnd.github.v3.full+json"
-      success: delete_id
-      error: error
-    true
+remove_id = (e) ->
+  e.preventDefault()
+  trigger = $ e.target
   error = (request, status, error) ->
     form_loading trigger, 0
-    console.log status, error
+    modal_message "get_sha(): #{status} #{error}", 'danger'
+    true
   delete_id = (data, status) ->
     book_array = []
     for book, i in YAML.parse(Base64.decode data.content)
@@ -30,12 +17,27 @@ remove_id = (link) ->
         sha: data.sha
         content: Base64.encode(if book_array.length then YAML.stringify book_array, null, 2 else '')
       }
-      success: done
+      success: delete_success
       error: error
     true
-  done = () ->
+  delete_success = () ->
+    modal_message "Entry removed", 'success'
+    trigger.parents 'li'
+      .remove()
     true
-  trigger.on "click", get_sha
+  form_loading trigger, 1
+  id = trigger.data 'id'
+  file = trigger.data 'file'
+  commit_url = "{{ site.github.api_url }}/repos/{{ site.github.repository_nwo }}/contents/_data/#{file}"
+  # GET /repos/:owner/:repo/contents/:path
+  # get file SHA
+  $.ajax commit_url,
+    method: 'GET'
+    headers:
+      authorization: "token #{storage.get('token')}"
+      accept: "application/vnd.github.v3.full+json"
+    success: delete_id
+    error: error
   true
 
-remove_id link for link in $ 'a.remove'
+$('a.remove').on 'click', remove_id

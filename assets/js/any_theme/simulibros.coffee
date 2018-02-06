@@ -29,7 +29,7 @@ libros = (div) ->
         'href': book.link
         'data-book': LZString.compressToBase64 JSON.stringify book
         'html': $('#template-book').html()
-      ['title', 'author', 'year', 'publisher'].map (field) ->
+      ['title', 'author', 'year', 'publisher', 'link'].map (field) ->
         result.find(".libros-#{field}").text book[field]
       if book.image_url
         result.find('.libros-image-container')
@@ -68,7 +68,7 @@ libros = (div) ->
     e.preventDefault()
     results.html ''
     data = JSON.parse LZString.decompressFromBase64 $(e.currentTarget).data 'book'
-    ['title', 'author', 'year', 'publisher', 'image_url'].map (field) ->
+    ['title', 'author', 'year', 'publisher', 'image_url', 'link'].map (field) ->
       form.find("[aria-label='#{field}']").val data[field]
         .change()
       true
