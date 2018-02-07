@@ -18,6 +18,7 @@ yml_render = (container) ->
   # Events
   get_sha = (e) ->
     e.preventDefault()
+    if !storage.get('token')? then return $('.login-form').modal 'show'
     form_loading commit, 1
     # GET /repos/:owner/:repo/contents/:path
     # get file SHA
@@ -54,13 +55,22 @@ yml_render = (container) ->
     modal_message "create_file(): #{status} #{error}", 'danger'
     true
   update_file = (data, status) ->
+    item_new = YAML.parse(yml.html())[0]
+    arr = []
+    found = false
+    for item in YAML.parse Base64.decode(data.content)
+      if item.id == +item_new.id
+        found = true
+        arr.push item_new
+      else arr.push item
+    if !found then arr.push item_new
     $.ajax commit_url,
       method: 'PUT'
       headers: "Authorization": "token #{storage.get('token')}"
       data: JSON.stringify {
         message: "Update /_data/#{commit.data('file')}"
         sha: data.sha
-        content: Base64.encode(Base64.decode(data.content) + yml.html())
+        content: Base64.encode(YAML.stringify(arr, null, 2))
       }
       success: done 'File updated'
       error: error
@@ -74,11 +84,14 @@ yml_render = (container) ->
     $(input).val '' for input in form.find '.form-control'
     render()
     true
-  render = () ->
+  get_input = () ->
     obj = {}
     for input in form.find '.form-control'
       key = $(input).attr 'aria-label'
       if $(input).val() != '' and key then obj[key] = $(input).val()
+    return obj
+  render = () ->
+    obj = get_input()
     if Object.keys(obj).length
       if !obj.id?
         obj['id'] = Math.round(new Date().getTime() / 1000)

@@ -9,14 +9,14 @@ form_loading = (element, state) ->
       element.data 'cache', element.val()
       element.val 'Loading'
     else
-      element.addClass 'disabled'
       element.data 'cache', element.text()
       element.text 'Loading'
+        .addClass 'disabled'
   else
     fieldset?.prop {disabled: false}
     if element.val()
       element.val element.data 'cache'
     else
       element.text element.data 'cache'
-      element.removeClass 'disabled'
+        .removeClass 'disabled'
   true

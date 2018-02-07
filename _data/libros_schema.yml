@@ -7,6 +7,9 @@
     name: Search Openlibrary
     type: submit
   -
+    name: Search Goodreads
+    type: submit
+  -
     name: Reset
     type: reset
 -
@@ -16,9 +19,11 @@
 -
   name: Year
 -
+  name: Link
+-
   name: Publisher
 -
-  name: Link
+  name: Rating
 -
   name: Start reading
   type: date
@@ -26,4 +31,8 @@
   name: End reading
   type: date
 -
+  name: Id
+-
   include: yml/render.html
+-
+  include_below: simulibros/goodreads.html

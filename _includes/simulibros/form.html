@@ -32,3 +32,7 @@
     {%- endfor -%}
   </fieldset>
 </form>
+{%- for field in site.data.libros_schema -%}
+{% if field.include_below %}{% include {{ field.include_below }} %}
+{% endif %}
+{%- endfor -%}

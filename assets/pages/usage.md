@@ -17,7 +17,7 @@ Version: `{{ site.github.build_revision | slice: 0, 7 }}`
 
 {% include simulibros/form.html data_file='libros.yml' %}
 
-# Remove book
+# Remove/Edit book
 
 ```liquid
 {% raw %}{% include simulibros/list.html list=site.data.libros %}{% endraw %}
