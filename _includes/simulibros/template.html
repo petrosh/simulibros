@@ -1,7 +1,7 @@
 <!-- Libros list -->
 <div class="list-group search-results">
 {% if include.list %}
-  {%- assign list = include.list | sort: 'start_reading' -%}
+  {%- assign list = include.list | sort: 'start_reading' | reverse -%}
 {% else %}
   {%- assign list = site.emptyArray | push: nil -%}
 </div><template id="template-book">
@@ -18,6 +18,13 @@
     </div>
     <p class="libros-author">{{ item.author }}</p>
     <small class="libros-publisher">{{ item.publisher }}</small>
+    {% if item.start_reading %}
+      {%- if item.end_reading -%}
+      {%- include simulibros/progress.html -%}
+      {%- else -%}
+      <br><span class="badge badge-primary">Reading</span>
+      {%- endif -%}
+    {% endif %}
   </div>
 </div>
 {% if include.list %}</a>{% endif %}
