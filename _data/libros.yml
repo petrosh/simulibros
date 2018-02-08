@@ -54,3 +54,13 @@
   start_reading: '2017-12-03'
   end_reading: '2017-12-25'
   id: 1518111602
+-
+  title: 'Starship Mine'
+  author: 'Peter Cawdron'
+  image_url: 'https://images.gr-assets.com/books/1457911779l/29500510.jpg'
+  year: 2016
+  link: 'https://www.goodreads.com/book/show/29500510'
+  rating: 4.22
+  start_reading: '2017-12-26'
+  end_reading: '2017-12-29'
+  id: 1518111767
