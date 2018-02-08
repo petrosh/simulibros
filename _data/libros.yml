@@ -34,3 +34,13 @@
   rating: 4.25
   start_reading: '2018-02-07'
   id: 1518111468
+-
+  title: 'Shadows (Silo Saga)'
+  author: 'Peter Cawdron'
+  image_url: 'https://images.gr-assets.com/books/1389643833m/20526881.jpg'
+  year: 2013
+  link: 'https://www.goodreads.com/book/show/20526881'
+  rating: 4.17
+  start_reading: '2018-01-01'
+  end_reading: '2018-02-09'
+  id: 1518111550
