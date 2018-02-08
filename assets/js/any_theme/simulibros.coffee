@@ -111,7 +111,6 @@ libros = (div) ->
         "Access-Control-Allow-Origin": "*"
         "Access-Control-Allow-Credentials": "true"
       dataType: "xml"
-      crossDomain: true
       success: gr_success
       error: search_error
     }
@@ -129,7 +128,7 @@ libros = (div) ->
         true
       .fail (xhr, status, err) -> search_error
     true
-  get_search_string = () ->
+  get_search_string = ->
     $.grep([
         title.val().trim().replace /[\s,]/g, "+"
         author.val().trim().replace /[\s,]/g, "+"
@@ -155,7 +154,7 @@ libros = (div) ->
   form.find('[aria-label="title"],[aria-label="author"]').keypress (e) -> if e.which == 13
     search_string = get_search_string()
     if search_string then search_function search_string
-  reset.on 'click', () -> results.html ''
+  reset.on 'click', -> results.html ''
   results.on "click", "a", book_event
   true
 

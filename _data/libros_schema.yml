@@ -18,12 +18,14 @@
   name: Image URL
 -
   name: Year
+  numeric: true
 -
   name: Link
 -
   name: Publisher
 -
   name: Rating
+  numeric: true
 -
   name: Start reading
   type: date
@@ -32,6 +34,7 @@
   type: date
 -
   name: Id
+  numeric: true
 -
   include: yml/render.html
 -

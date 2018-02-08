@@ -88,7 +88,10 @@ yml_render = (container) ->
     obj = {}
     for input in form.find '.form-control'
       key = $(input).attr 'aria-label'
-      if $(input).val() != '' and key then obj[key] = $(input).val()
+      if $(input).val() != '' and key
+        value = $(input).val()
+        if $(input).data 'numeric' then value = Number value
+        obj[key] = value
     return obj
   render = () ->
     obj = get_input()

@@ -20,7 +20,7 @@
         <div class="input-group-prepend">
           <span class="input-group-text" id="label_{{ field.name | slugify }}_{{ forloop.index }}">{{ field.name }}</span>
         </div>
-        <input type="{{ field.type | default: 'text' }}" class="form-control" aria-label="{{ field.name | slugify | replace: '-', '_' }}" aria-describedby="label_{{ field.name | slugify }}_{{ forloop.index }}">
+        <input type="{{ field.type | default: 'text' }}" class="form-control" aria-label="{{ field.name | slugify | replace: '-', '_' }}" aria-describedby="label_{{ field.name | slugify }}_{{ forloop.index }}"{% if field.numeric %} data-numeric="1"{% endif %}>
       </div>
     </div>
     {%- comment -%}
