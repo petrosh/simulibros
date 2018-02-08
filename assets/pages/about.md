@@ -7,17 +7,30 @@ permalink: /about
 
 **Storage:**
 
-- `{% include github_link.html file="assets/js/any_theme/storage.coffee" %}`
+- `{% include filters/github_link.html file="assets/js/any_theme/storage.coffee" %}`
 - <a href="#" id="storage_log">Storage log</a>
 
 **Login:**
 
-- `{% include github_link.html file="_includes/login.html" %}`
-- `{% include github_link.html file="assets/js/any_theme/login.coffee" %}`
+- `{% include filters/github_link.html file="_includes/login.html" %}`
+- `{% include filters/github_link.html file="assets/js/any_theme/login.coffee" %}`
 
 **Simulibros:**
 
-- `{% include github_link.html file="_includes/simulibros/form.html" %}`
-- `{% include github_link.html file="_includes/simulibros/search.html" %}`
-- `{% include github_link.html file="_includes/simulibros/results.html" %}`
-- `{% include github_link.html file="assets/js/any_theme/simulibros.coffee" %}`
+- `{% include filters/github_link.html file="_includes/simulibros/form.html" %}`
+- `{% include filters/github_link.html file="_includes/simulibros/search.html" %}`
+- `{% include filters/github_link.html file="_includes/simulibros/results.html" %}`
+- `{% include filters/github_link.html file="assets/js/any_theme/simulibros.coffee" %}`
+
+**Progress:**
+
+{% include simulibros/progress.html now="21" %}
+
+**Apis:**
+
+```liquid
+{% raw %}{% include api/get.html file="simulibros/progress.html" %}{% endraw %}
+```
+
+{% include api/get.html file="simulibros/progress.html" %}
+{% include api/get.html file="filters/unslug.html" %}

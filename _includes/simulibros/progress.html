@@ -1,0 +1,41 @@
+{% capture api %}
+Render a Bootstrap 4 HTML progress bar.
+
+**Usage**
+
+```liquid
+{% raw %}{% include simulibros/progress.html %}{% endraw %}
+```
+
+**Return**
+
+```html
+<div class="progress">
+  <div class="progress-bar" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">Label</div>
+</div>
+```
+{%- endcapture -%}
+{% capture param %}
+min | number | Define `aria-valuemin` | 0
+max | number | Define `aria-valuemax` | 100
+now | number | Define `aria-valuenow` | 25
+offset | boolean | Start with an offset |
+label | string | Define progress label |
+bg | string | Define progress background color with a class such as `success`, `info`... |
+striped | boolean | Add stripes if `true` with `progress-bar-striped` class |
+{% endcapture %}
+{%- include api/save.html -%}
+{%- assign min = include.min | default: 0 -%}
+{%- assign max = include.max | default: 100 -%}
+{%- assign now = include.now | default: 25 -%}
+{%- assign width = max | minus: min -%}
+{%- assign percent = now | minus: min | times: 100 | divided_by: width -%}
+{%- if include.offset -%}
+{%- assign percent_offset = include.offset | minus: min | times: 100 | divided_by: width -%}
+{%- endif -%}
+<div class="progress">
+  {%- if include.offset -%}
+  <div class="progress-bar" style="width:{{ percent_offset }}%;background-color:inherit" role="progressbar" aria-valuenow="{{ now }}" aria-valuemin="{{ min }}" aria-valuemax="{{ max }}"></div>
+  {%- endif -%}
+  <div class="progress-bar{% if include.bg %} bg-{{ include.bg }}{% endif %}{% if include.striped %} progress-bar-striped{% endif %}" style="width:{{ percent }}%" role="progressbar" aria-valuenow="{{ now }}" aria-valuemin="{{ min }}" aria-valuemax="{{ max }}">{{ include.label }}</div>
+</div>

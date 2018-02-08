@@ -1,0 +1,26 @@
+{% capture newLine %}
+{% endcapture %}
+{% include page/init.html %}
+{%- assign file = include.file | default: "api/example.html" -%}
+{% capture load %}{% include {{ file }} %}{% endcapture %}
+{%- assign file_path =	'_includes/' | append: file -%}
+{%- assign file_name = file | split: '/' | last | remove: '.html' -%}
+{% capture file_title %}{% include filters/unslug.html string=file_name %}{% endcapture %}
+{% capture github_link %}{% include filters/github_link.html file=file_path %}{% endcapture %}
+{%- assign file_info = "#### " | append: file_title | append: newLine | append: "**File [`" | append: file_path | append: "`](" | append: github_link | strip | append: ")**" | append: newLine -%}
+{% capture param_table %}
+**Parameters**
+
+|Includes|Type|Description|Default|
+|--|--|--|--|
+{%- assign rows = param_stack[0] | split: newLine -%}
+{%- for row in rows -%}
+{% if row.size > 0 %}
+|{{row}}|
+{%- endif -%}
+{%- endfor -%}
+{% endcapture %}
+{%- assign api_content = api_stack[0] | prepend: file_info | append: newLine | append: param_table -%}
+<div class="api">
+{{ api_content | markdownify }}
+</div>

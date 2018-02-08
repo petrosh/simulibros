@@ -1,7 +1,7 @@
 ---
 title: Usage
 description: Track and Share your readings 📚
-permalink: /docs
+permalink: /usage
 ---
 
 Version: `{{ site.github.build_revision | slice: 0, 7 }}`

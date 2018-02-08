@@ -3,11 +3,13 @@ $('a.edit').on 'click', (e) ->
   trigger = $ e.target
   file = trigger.data 'file'  
   id = trigger.data 'id'
+  form_loading trigger, 1
   error = (request, status, error) ->
     form_loading trigger, 0
     modal_message "get_sha(): #{status} #{error}", 'danger'
     true
   paste_id = (data, status) ->
+    form_loading trigger, 0
     for book in YAML.parse(Base64.decode data.content)
       if id == book.id
         $('.widget-simulibros input[type="text"]').each ->

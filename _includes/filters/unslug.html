@@ -1,0 +1,25 @@
+{% capture api %}
+Unslug the included `string` replacing `-` and `_` with spaces.  
+If `string` is all lowercase will be capitalized.
+
+**Usage**
+
+```liquid
+{% raw %}{% include filters/unslug.html string="open_file" %}{% endraw %}
+```
+
+**Return**
+
+```
+"Open File"
+```
+{%- endcapture -%}
+{% capture param %}string|string|String to unslug|Required{% endcapture %}
+{%- include api/save.html -%}
+{%- assign words = include.string | replace: '-', ' ' | replace: '_', ' ' | split: ' ' -%}
+{%- for word in words -%}
+  {%- assign word_lowercase = word | downcase -%}
+  {%- if word == word_lowercase -%}
+{{ word | capitalize }}&nbsp;{%- else -%}
+{{ word }}&nbsp;{%- endif -%}
+{%- endfor -%}

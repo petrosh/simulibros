@@ -1,0 +1,20 @@
+{% capture api %}
+Description
+
+**Usage**
+
+```liquid
+{% raw %}{% include example.html param1=1 param2=2 %}{% endraw %}
+```
+
+**Return**
+
+```html
+<!-- Result -->
+```
+{% endcapture %}
+{% capture param %}
+param1|type|description|default value
+param2|type|description|default value
+{% endcapture %}
+{% include api/save.html %}
