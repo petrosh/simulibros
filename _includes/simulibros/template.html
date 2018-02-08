@@ -1,7 +1,7 @@
 <!-- Libros list -->
 <div class="list-group search-results">
 {% if include.list %}
-  {%- assign list = include.list -%}
+  {%- assign list = include.list | sort: 'start_reading' -%}
 {% else %}
   {%- assign list = site.emptyArray | push: nil -%}
 </div><template id="template-book">

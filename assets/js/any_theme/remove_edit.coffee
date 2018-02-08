@@ -12,9 +12,11 @@ $('a.edit').on 'click', (e) ->
     form_loading trigger, 0
     for book in YAML.parse(Base64.decode data.content)
       if id == book.id
-        $('.widget-simulibros input[type="text"]').each ->
-          $(@).val book[$(@).attr 'aria-label']
-            .change()
+        $('.widget-simulibros input').each ->
+          label = $(@).attr 'aria-label'
+          if label and book[label]
+            $(@).val book[$(@).attr 'aria-label']
+              .change()
           true
     true
   commit_url = "{{ site.github.api_url }}/repos/{{ site.github.repository_nwo }}/contents/_data/#{file}"
