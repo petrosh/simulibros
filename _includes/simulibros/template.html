@@ -28,8 +28,9 @@
         {%- assign end_unix = item.end_reading | date: "%s" | divided_by: sensibility -%}
         {%- assign reading_time = end_unix | minus: start_unix | plus: year_start -%}
         {%- include simulibros/progress.html min=year_start max=year_end now=reading_time offset=start_unix -%}
+        <small>Readed in {{ reading_time | minus: year_start | divided_by: 86400.0 | round }} days</small>
       {%- else -%}
-      <br><span class="badge badge-primary">Reading</span>
+      <span class="badge badge-primary">Reading</span><small> since {{ item.start_reading | date: "%-d %b %Y" }}</small>
       {%- endif -%}
     {% endif %}
   </div>

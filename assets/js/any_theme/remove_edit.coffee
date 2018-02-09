@@ -3,7 +3,7 @@ $('a.edit').on 'click', (e) ->
   trigger = $ e.target
   file = trigger.data 'file'  
   id = trigger.data 'id'
-  form_loading trigger, 1
+  form = $ '.widget-simulibros'
   error = (request, status, error) ->
     form_loading trigger, 0
     modal_message "get_sha(): #{status} #{error}", 'danger'
@@ -12,16 +12,23 @@ $('a.edit').on 'click', (e) ->
     form_loading trigger, 0
     for book in YAML.parse(Base64.decode data.content)
       if id == book.id
-        $('.widget-simulibros input').each ->
+        # Fill form fields with same `aria-label` as book property
+        form.find('input[type="text"], input[type="date"]').each ->
           label = $(@).attr 'aria-label'
-          if label and book[label]
+          $(@).val '' # Reset field
+          if book[label]
             $(@).val book[$(@).attr 'aria-label']
               .change()
           true
+        # Scroll to form top
+        $ 'html, body'
+          .animate
+            scrollTop: form.offset().top
     true
-  commit_url = "{{ site.github.api_url }}/repos/{{ site.github.repository_nwo }}/contents/_data/#{file}"
   # GET /repos/:owner/:repo/contents/:path
-  # get file SHA
+  # get file
+  form_loading trigger, 1
+  commit_url = "{{ site.github.api_url }}/repos/{{ site.github.repository_nwo }}/contents/_data/#{file}"
   $.ajax commit_url,
     method: 'GET'
     headers:
