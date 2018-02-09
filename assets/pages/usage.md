@@ -19,8 +19,18 @@ Version: `{{ site.github.build_revision | slice: 0, 7 }}`
 
 # Remove/Edit book
 
+### List
+
 ```liquid
 {% raw %}{% include simulibros/list.html list=site.data.libros %}{% endraw %}
 ```
 
 {% include simulibros/list.html list=site.data.libros %}
+
+### Table
+
+```liquid
+{% raw %}{% include simulibros/table.html list=site.data.libros %}{% endraw %}
+```
+
+{% include simulibros/table.html list=site.data.libros %}

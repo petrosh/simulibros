@@ -1,3 +1,4 @@
-{% for item in include.list %}
+{%- assign list = include.list | sort: "start_reading" | reverse -%}
+{% for item in list %}
 - {{ item.title }} by {{ item.author }} ({{ item.year }}) <a href="{{ item.link }}" class="edit" data-file="libros.yml" data-id="{{ item.id }}">Edit</a> <a href="{{ item.link }}" class="remove" data-file="libros.yml" data-id="{{ item.id }}">Remove</a>
 {%- endfor -%}
