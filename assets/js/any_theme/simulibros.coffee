@@ -16,17 +16,17 @@ libros = (div) ->
   search_function = (e) ->
     if storage.get 'goodreads_key' then search_gr(e) else search_ol(e)
   $('#submitGoodreads').click (e) ->
-    # e.preventDefault()
+    e.preventDefault()
     if goodreads_key.val()
       storage.set 'goodreads_key', goodreads_key.val()
       search_function = (e) -> search_gr(e)
     true
-  submit_ol.on "click", (e) ->
+  submit_ol.click (e) ->
     e.preventDefault()
     search_string = get_search_string()
     if search_string then search_ol search_string
     true
-  submit_gr.on "click", (e) ->
+  submit_gr.click (e) ->
     e.preventDefault()
     if storage.get 'goodreads_key'
       search_string = get_search_string()
