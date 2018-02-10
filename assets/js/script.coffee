@@ -11,5 +11,5 @@ console.log 'jQuery:', try $().jquery catch e then 'none'
 {% include_relative any_theme/remove_edit.coffee %}
 
 # Enable tooltips
-$ '[data-toggle*=tooltip]'
+$ '[data-toggle*="tooltip"]'
 	.tooltip()

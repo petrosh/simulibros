@@ -29,6 +29,8 @@ $code-font-size: 80%
 //
 // Simulibros
 //
+.justify-box
+  @extend .d-flex, .w-100, .justify-content-between
 
 html
   background-color: $frame-color
@@ -78,7 +80,8 @@ table
 
 .progress
   @extend .mb-4, .mt-2
-.search-results .progress
+.search-results .progress,
+.card .progress
   @extend .mb-2
 
 // Code
@@ -151,6 +154,16 @@ form.widget-simulibros
       @extend .mb-3
     &.no-results
       @extend .disabled
+
+// CARDS
+.card
+  .card-body + .card-body
+    border-top: $card-border-width solid $card-border-color
+  small[data-toggle="tooltip"]
+    cursor: default
+  img
+    @extend .w-100
+    @include border-radius($card-inner-border-radius)
 
 // RENDER YML
 .yml-render

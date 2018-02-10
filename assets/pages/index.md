@@ -7,7 +7,7 @@ permalink: /
 # Books list
 
 ```liquid
-{% raw %}{% include simulibros/template.html list=site.data.libros %}{% endraw %}
+{% raw %}{% include simulibros/cards.html list=site.data.libros %}{% endraw %}
 ```
 
-{% include simulibros/template.html list=site.data.libros %}
+{% include simulibros/cards.html list=site.data.libros %}

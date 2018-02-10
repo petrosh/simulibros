@@ -1,0 +1,28 @@
+{%- assign list = include.list | sort: 'start_reading' | reverse -%}
+<div class="card">
+{%- for item in list -%}
+  <div class="card-body">
+    <div class="row">
+      <div class="pr-0{% if item.image_url %} col-2{% endif %}">{% if item.image_url %}
+      <img src="{{ item.image_url }}" alt="{{ item.title }}">{% endif %}</div>
+      <div class="col">
+        <div class="justify-box">
+          <h5 class="card-title mb-2">{{ item.title }}</h5>
+          <small>{{ item.year }}</small>
+        </div>
+        <p class="card-subtitle justify-box">
+          {{ item.author }} {% if item.publisher %} ({{ item.publisher }}){% endif %}
+          {% if item.rating %}<small>★ {{ item.rating }}</small>{% endif %}
+        </p>
+        {% include simulibros/reading_progress.html item=item %}
+        <p class="justify-box">
+          {% if item.link %}
+            {%- assign link_text = item.link | replace: "https://", "" | replace: "http://", "" | replace: "www.", "" | split: "." | first -%}
+            <a class="small" href="{{ item.link }}">{% include filters/unslug.html string=link_text %}</a>
+          {% endif %}
+        </p>
+      </div>
+    </div>
+  </div>
+{%- endfor -%}
+</div>
