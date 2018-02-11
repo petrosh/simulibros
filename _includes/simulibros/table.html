@@ -1,5 +1,32 @@
 {%- assign list = include.list | sort: "start_reading" | reverse -%}
-| Cover | Title | Author | Year | Edit | Remove |
-|--|--|--|--|--|--|{% for item in list %}
-|{% if item.image_url %}<img style="width:3em" src="{{ item.image_url }}" alt="{{ item.title }}">{% endif %}| [{{ item.title }}]({{ item.link }}) | {{ item.author }} | {{ item.year }} | <a href="{{ item.link }}" class="edit" data-file="libros.yml" data-id="{{ item.id }}">Edit</a> | <a href="{{ item.link }}" class="remove" data-file="libros.yml" data-id="{{ item.id }}">Remove</a>
-{%- endfor -%}
+<table data-widget="table-manager">
+  <thead>
+    <tr>
+      <th>Cover</th>
+      <th>Book</th>
+      <th>Edit</th>
+      <th>Remove</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for item in list %}
+    <tr>
+      <td>
+        {% if item.image_url %}
+          <img style="width:3em" src="{{ item.image_url }}" alt="{{ item.title }}">
+        {% endif %}
+      </td>
+      <td>
+        <a href="{{ item.link }}">{{ item.title }}</a><br>
+        {{ item.author }} {% if item.year %}({{ item.year }}){% endif %}
+      </td>
+      <td>
+        <a href="{{ item.link }}" class="edit" data-file="libros.yml" data-id="{{ item.id }}">Edit</a>
+      </td>
+      <td>
+        <a href="{{ item.link }}" class="remove" data-file="libros.yml" data-id="{{ item.id }}">Remove</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

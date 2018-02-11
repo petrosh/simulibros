@@ -18,6 +18,7 @@ yml_render = (container) ->
   # Events
   get_sha = (e) ->
     e.preventDefault()
+    render()
     if !storage.get('token')? then return $('.login-form').modal 'show'
     form_loading commit, 1
     # GET /repos/:owner/:repo/contents/:path
@@ -47,7 +48,7 @@ yml_render = (container) ->
         message: "Create /_data/#{commit.data('file')}"
         content: Base64.encode yml.html()
       }
-      success: done 'File created'
+      success: file_created
       error: error
     true
   error = (request, status, error) ->
@@ -55,15 +56,19 @@ yml_render = (container) ->
     modal_message "create_file(): #{status} #{error}", 'danger'
     true
   update_file = (data, status) ->
+    # Parse new item from yaml widget area
     item_new = YAML.parse(yml.html())[0]
     arr = []
     found = false
+    # Loop items to replace if one has same ID
     for item in YAML.parse Base64.decode(data.content)
       if item.id == +item_new.id
         found = true
         arr.push item_new
       else arr.push item
+    # If ID not found, append new item
     if !found then arr.push item_new
+    # Commit
     $.ajax commit_url,
       method: 'PUT'
       headers: "Authorization": "token #{storage.get('token')}"
@@ -72,8 +77,21 @@ yml_render = (container) ->
         sha: data.sha
         content: Base64.encode(YAML.stringify(arr, null, 2))
       }
-      success: done 'File updated'
+      success: file_updated
       error: error
+    true
+  file_updated = (data, status) ->
+    check_commit data
+    done 'File updated'
+    true
+  file_created = (data, status) ->
+    check_commit data
+    done 'File created'
+    true
+  check_commit = (data) ->
+    # Check commit
+    storage.set 'update_sha', data.sha
+    console.log data.sha
     true
   done = (message) ->
     form_loading commit, 0
@@ -87,11 +105,12 @@ yml_render = (container) ->
   get_input = () ->
     obj = {}
     for input in form.find '.form-control'
-      key = $(input).attr 'aria-label'
-      if $(input).val() != '' and key
+      $(input).blur()
+      label = $(input).attr 'aria-label'
+      if $(input).val() != '' and label
         value = $(input).val()
         if $(input).data 'numeric' then value = Number value
-        obj[key] = value
+        obj[label] = value
     return obj
   render = () ->
     obj = get_input()

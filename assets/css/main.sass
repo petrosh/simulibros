@@ -17,7 +17,7 @@ $headings-font-weight: 300
 $headings-margin-bottom: 1.5rem
 // 211 is primary-blue, 20% is light blue, 93% is whitey
 $frame-color: hsl(211, 20%, 93%)
-$font-size-base: 1.2rem
+// $font-size-base: 1.2rem
 $form-check-input-margin-y: 0.45rem
 $code-font-size: 80%
 
@@ -122,9 +122,12 @@ input[type="reset"]
 
 // SIMULIBROS
 form.widget-simulibros
-  // Bigger font-size give problems with date-type
+  input
+    &[type="text"], &[type="text"]
+      background-color: $gray-100
+  // Font-size problems with date-type
   input[type="date"]
-    font-size: 1rem
+    font-size: 90%
   // Style labels
   .input-group-prepend
     min-width: 20%
@@ -163,6 +166,7 @@ form.widget-simulibros
     cursor: default
   img
     @extend .w-100
+    max-width: 7em
     @include border-radius($card-inner-border-radius)
 
 // RENDER YML
@@ -171,5 +175,9 @@ form.widget-simulibros
     @extend .btn-secondary
   .copy-button
     @extend .btn-outline-secondary 
+
+// Table manager
+table[data-widget="table-manager"]
+  @extend .table-sm, .table-hover
 
 @import "syntax.css"
