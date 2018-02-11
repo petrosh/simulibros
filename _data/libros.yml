@@ -168,3 +168,13 @@
   start_reading: '2017-07-25'
   end_reading: '2017-08-08'
   id: 1518356590
+-
+  title: 'Three Men in a Boat (Three Men, #1)'
+  author: 'Jerome K. Jerome'
+  image_url: 'https://images.gr-assets.com/books/1392791656m/4921.jpg'
+  year: 1889
+  link: 'https://www.goodreads.com/book/show/4921'
+  rating: 3.9
+  start_reading: '2017-07-10'
+  end_reading: '2017-07-25'
+  id: 1518356629
