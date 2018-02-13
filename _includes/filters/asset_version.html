@@ -1,0 +1,5 @@
+{%- assign file_name = include.js | default: include.css -%}
+{%- assign array = file_name | split: '/' | reverse -%}
+{%- for e in array limit:3 offset:1 -%}
+  {%- if e.size >= 5 & index.for & e contains '.'-%}{{ e }}{% break %}{%- endif -%}
+{%- endfor -%}

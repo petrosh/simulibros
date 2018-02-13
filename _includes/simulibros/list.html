@@ -1,8 +1,8 @@
 {%- assign list = include.list | sort: "start_reading" | reverse -%}
 {% for item in list %}
-<dl class="row">
-  <dt class="col-6">{{ item.title | replace: '(', '<span class="font-weight-light">(' | replace: ')', ')</span>' }}</dt>
-  <dd class="col">{{ item.author }}<br>{{ item.year }}</dd>
+<dl class="row" data-widget="list-manager">
+  <dt class="col-7">{{ item.title | replace: '(', '<span class="font-weight-light">(' | replace: ')', ')</span>' }}</dt>
+  <dd class="col">{{ item.author }}</dd>
   <dd class="col-1"><a href="{{ item.link }}" class="edit" data-file="libros.yml" data-id="{{ item.id }}">Edit</a></dd>
   <dd class="col-1"><a href="{{ item.link }}" class="remove" data-file="libros.yml" data-id="{{ item.id }}">Remove</a></dd>
 </dl>

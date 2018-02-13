@@ -20,6 +20,7 @@
 {%- endif -%}
 {%- endfor -%}
 {% endcapture %}
+{%- if rows.size == 0 -%}{%- assign param_table = '' -%}{%- endif -%}
 {%- assign api_content = api_stack[0] | prepend: file_info | append: newLine | append: param_table -%}
 <div class="api">
 {{ api_content | markdownify }}

@@ -123,7 +123,7 @@ input[type="reset"]
 // SIMULIBROS
 form.widget-simulibros
   input
-    &[type="text"], &[type="text"]
+    &[type="text"], &[type="date"]
       background-color: $gray-100
   // Font-size problems with date-type
   input[type="date"]
@@ -179,5 +179,11 @@ form.widget-simulibros
 // Table manager
 table[data-widget="table-manager"]
   @extend .table-sm, .table-hover
+
+// List manager
+dl[data-widget="list-manager"]
+  @extend .mb-0
+  &:hover
+    background-color: $gray-100
 
 @import "syntax.css"

@@ -1,13 +1,5 @@
 {%- assign list = include.list | sort: "start_reading" | reverse -%}
 <table data-widget="table-manager">
-  <thead>
-    <tr>
-      <th>Cover</th>
-      <th>Book</th>
-      <th>Edit</th>
-      <th>Remove</th>
-    </tr>
-  </thead>
   <tbody>
   {% for item in list %}
     <tr>
@@ -17,7 +9,8 @@
         {% endif %}
       </td>
       <td>
-        <a href="{{ item.link }}">{{ item.title }}</a><br>
+        <strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong>
+        <br>
         {{ item.author }} {% if item.year %}({{ item.year }}){% endif %}
       </td>
       <td>

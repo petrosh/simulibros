@@ -1,0 +1,46 @@
+{% capture api %}
+Render a Bootstrap 4 HTML table of assets defined in `_config.yml` like so
+
+```yml
+assets:
+  -
+    name: jQuery
+    js: https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js
+    repository: https://github.com/jquery/jquery
+  ...
+```
+
+**Usage**
+
+```liquid
+{% raw %}{% include components/assets.html %}{% endraw %}
+```
+
+**Return**
+
+```html
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Repository</th>
+      <th>Js</th>
+      <th>Css</th>
+      <th style="text-align: right">Version</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>jQuery</strong></td>
+      <td><a href="https://github.com/jquery/jquery">jquery/<strong>jquery</strong></a></td>
+      <td><code class="highlighter-rouge">jquery.min.js</code></td>
+      <td> </td>
+      <td style="text-align: right">3.3.1</td>
+    </tr>
+    ...
+```
+{% endcapture %}
+{% include api/save.html %}
+|Name|Repository|Js|Css|Version|
+|--|--|--|--|--:|{% for asset in site.assets %}
+| **{{ asset.name }}** | [{{ asset.repository | replace: 'https://github.com/', '' | replace: '/', '/**' | append: '**' }}]({{ asset.repository }}) | {{ asset.js | split: '/' | last | prepend: '`' | append: '`' | replace: '``', '' }} | {{ asset.css | split: '/' | last | prepend: '`' | append: '`' | replace: '``', '' }} | {% include filters/asset_version.html css=asset.css js=asset.js %}{% endfor %} |
