@@ -16,13 +16,13 @@ yml_render = (container) ->
   # Clipboard init
   new Clipboard copy[0], { target: () -> yml[0] }
   # Events
+  # get file SHA
   get_sha = (e) ->
     e.preventDefault()
-    render()
+    render() # Get focused fields
     if !storage.get('token')? then return $('.login-form').modal 'show'
     form_loading commit, 1
     # GET /repos/:owner/:repo/contents/:path
-    # get file SHA
     $.ajax commit_url,
       method: 'GET'
       headers:
@@ -38,14 +38,20 @@ yml_render = (container) ->
     else
       modal_message "get_sha(): #{status} #{error}", 'danger'
     true
+  ###  
+  Create new file
+  @param message {string}
+  @param content {string}
+  ###
   create_file = () ->
+    item_new = YAML.parse(yml.html())[0] # Parse new item from yaml widget area
+    message = "Created file with #{item_new.title} by #{item_new.author}"
     # PUT /repos/:owner/:repo/contents/:path
-    # message, content
     $.ajax commit_url,
       method: 'PUT'
       headers: "Authorization": "token #{storage.get('token')}"
       data: JSON.stringify {
-        message: "Create /_data/#{commit.data('file')}"
+        message: message
         content: Base64.encode yml.html()
       }
       success: file_created
@@ -56,8 +62,8 @@ yml_render = (container) ->
     modal_message "create_file(): #{status} #{error}", 'danger'
     true
   update_file = (data, status) ->
-    # Parse new item from yaml widget area
-    item_new = YAML.parse(yml.html())[0]
+    item_new = YAML.parse(yml.html())[0] # Parse new item from yaml widget area
+    message = "#{item_new.title} by #{item_new.author}"
     arr = []
     found = false
     # Loop items to replace if one has same ID
@@ -65,15 +71,18 @@ yml_render = (container) ->
       if item.id == +item_new.id
         found = true
         arr.push item_new
+        message = "Modifyed #{message}"
       else arr.push item
     # If ID not found, append new item
-    if !found then arr.push item_new
+    if !found
+      arr.push item_new
+      message = "Added #{message}"
     # Commit
     $.ajax commit_url,
       method: 'PUT'
       headers: "Authorization": "token #{storage.get('token')}"
       data: JSON.stringify {
-        message: "Update /_data/#{commit.data('file')}"
+        message: message
         sha: data.sha
         content: Base64.encode(YAML.stringify(arr, null, 2))
       }
@@ -82,11 +91,11 @@ yml_render = (container) ->
     true
   file_updated = (data, status) ->
     check_commit data
-    done 'File updated'
+    done message
     true
   file_created = (data, status) ->
     check_commit data
-    done 'File created'
+    done message
     true
   check_commit = (data) ->
     # Check commit
