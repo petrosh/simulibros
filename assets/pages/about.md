@@ -1,6 +1,22 @@
 ---
 title: About
 permalink: /about
+input_types:
+  - color
+  - date
+  - datetime-local
+  - search
+  - email
+  - month
+  - number
+  - range
+  - tel
+  - text
+  - textarea
+  - time
+  - url
+  - week
+  - submit
 ---
 
 * toc
@@ -82,3 +98,31 @@ To render an api, include `api/get.html` along with the target include file path
 ```
 
 {% include components/assets.html %}
+
+## Input types
+
+- `tel` fallback to `text` but on mobile presents custom keypad
+- `datetime` is **obsolete**
+- `datetime-local` you can set `min="2017-06-01T08:30" max="2017-06-30T16:30"`
+- `email` is validated at submit
+- Validity:  
+  ```css
+  input:invalid+span:after {
+    position: absolute; content: '✖';
+    padding-left: 5px;
+  }
+
+  input:valid+span:after {
+    position: absolute;
+    content: '✓';
+    padding-left: 5px;
+  }
+  ```
+  ```html
+  <input name="myURL" type="url" required pattern=".*\.myco\..*" title="The URL must be in a Myco domain">
+  <span class="validity"></span>
+  ```
+
+| Type | Markup | Render |
+|--|--|--|{% for t in page.input_types %}
+| {{ t }} | <code>&lt;input type=&quot;{{ t }}&quot; value=&quot;{{ t }}&quot; name=&quot;input_type_{{ t }}&quot;&gt;</code> | <input type="{{ t }}" value="{{ t }}" name="input_type_{{ t }}"> |{% endfor %}
