@@ -17,6 +17,8 @@ input_types:
   - url
   - week
   - submit
+  - checkbox
+  - radio
 ---
 
 * toc
@@ -126,3 +128,8 @@ To render an api, include `api/get.html` along with the target include file path
 | Type | Markup | Render |
 |--|--|--|{% for t in page.input_types %}
 | {{ t }} | <code>&lt;input type=&quot;{{ t }}&quot; value=&quot;{{ t }}&quot; name=&quot;input_type_{{ t }}&quot;&gt;</code> | <input type="{{ t }}" value="{{ t }}" name="input_type_{{ t }}"> |{% endfor %}
+
+<form>
+  <input type="url">
+  <input type="submit" value="ok">
+</form>

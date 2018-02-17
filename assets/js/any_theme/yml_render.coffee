@@ -3,6 +3,7 @@
 ###
 yml_render = (container) ->
   # Define elements
+  message = ''
   div = $ container
   yml = div.find 'code'
   copy = div.find '.copy-button'
