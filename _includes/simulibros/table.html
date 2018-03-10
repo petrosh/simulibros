@@ -2,6 +2,14 @@
 <table data-widget="table-manager">
   <tbody>
   {% for item in list %}
+  {%- assign sensibility = 0.9 -%}
+  {%- assign year = item.start_reading | date: "%Y" -%}
+  {%- assign year_start = year | prepend: "01-01-" | date: "%s" | divided_by: sensibility -%}
+  {%- assign year_end = year | prepend: "31-12-" | date: "%s" | divided_by: sensibility -%}
+  {%- assign start_unix = item.start_reading | date: "%s" | divided_by: sensibility -%}
+  {%- assign end_unix = item.end_reading | date: "%s" | divided_by: sensibility -%}
+  {%- assign reading_time = end_unix | minus: start_unix | plus: year_start -%}
+  {%- assign label = reading_time | minus: year_start | divided_by: 86400.0 | round | append: " days" -%}
     <tr>
       <td>
         {% if item.image_url %}
@@ -12,6 +20,8 @@
         <strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong>
         <br>
         {{ item.author }} {% if item.year %}({{ item.year }}){% endif %}
+        <br>
+        {% include simulibros/simple_progress.html item=item tooltip=label %}
       </td>
       <td>
         <a href="{{ item.link }}" class="edit" data-file="libros.yml" data-id="{{ item.id }}">Edit</a>

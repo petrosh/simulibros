@@ -21,6 +21,7 @@ max | number | Define `aria-valuemax` | 100
 now | number | Define `aria-valuenow` | 25
 offset | number | Start with an offset |
 label | string | Define progress label |
+tooltip | string | Define tooltip text |
 bg | string | Define progress background color with a class such as `success`, `info`... |
 striped | boolean | Add stripes if `true` with `progress-bar-striped` class |
 {% endcapture %}
@@ -37,5 +38,5 @@ striped | boolean | Add stripes if `true` with `progress-bar-striped` class |
   {%- if include.offset -%}
   <div class="progress-bar" style="width:{{ percent_offset }}%;background-color:inherit" role="progressbar" aria-valuenow="{{ now }}" aria-valuemin="{{ min }}" aria-valuemax="{{ max }}"></div>
   {%- endif -%}
-  <div class="progress-bar{% if include.bg %} bg-{{ include.bg }}{% endif %}{% if include.striped %} progress-bar-striped{% endif %}" style="width:{{ percent }}%" role="progressbar" aria-valuenow="{{ now }}" aria-valuemin="{{ min }}" aria-valuemax="{{ max }}">{{ include.label }}</div>
+  <div class="progress-bar{% if include.bg %} bg-{{ include.bg }}{% endif %}{% if include.striped %} progress-bar-striped{% endif %}" style="width:{{ percent }}%" role="progressbar" aria-valuenow="{{ now }}" aria-valuemin="{{ min }}" aria-valuemax="{{ max }}"{% if include.tooltip %} data-toggle="tooltip" title="{{ include.tooltip }}"{% endif %}>{{ include.label }}</div>
 </div>

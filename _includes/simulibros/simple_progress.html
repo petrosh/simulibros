@@ -1,21 +1,16 @@
 {%- assign item = include.item -%}
 {% if item.start_reading %}
   {%- if item.end_reading -%}
-    {%- assign sensibility = 0.9 -%}
+    {%- assign sensibility = 0.99 -%}
     {%- assign year = item.start_reading | date: "%Y" -%}
     {%- assign year_start = year | prepend: "01-01-" | date: "%s" | divided_by: sensibility -%}
     {%- assign year_end = year | prepend: "31-12-" | date: "%s" | divided_by: sensibility -%}
     {%- assign start_unix = item.start_reading | date: "%s" | divided_by: sensibility -%}
     {%- assign end_unix = item.end_reading | date: "%s" | divided_by: sensibility -%}
     {%- assign reading_time = end_unix | minus: start_unix | plus: year_start -%}
-    <div class="row">
-      <div class="col-auto">
-        <small data-toggle="tooltip" data-placement="top" data-html="true" title="<small>{% include filters/condensed_date.html start=item.start_reading end=item.end_reading %}</small>">Readed in {{ reading_time | minus: year_start | divided_by: 86400.0 | round }} days</small>
-      </div>
-      <div class="col">
-        {%- include simulibros/progress.html min=year_start max=year_end now=reading_time offset=start_unix -%}
-      </div>
-    </div>
+    {% capture span_date %}{% include filters/condensed_date.html start=item.start_reading end=item.end_reading %}{% endcapture %}
+    {%- assign label = reading_time | minus: year_start | divided_by: 86400.0 | round | append: " days: " | append: span_date -%}
+    {%- include simulibros/progress.html min=year_start max=year_end now=reading_time offset=start_unix tooltip=label -%}
   {%- else -%}
   <span class="badge badge-primary mb-2">Reading</span><small> since {{ item.start_reading | date: "%-d %b %Y" }}</small>
   {%- endif -%}

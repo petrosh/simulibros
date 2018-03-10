@@ -56,21 +56,7 @@ To render an api, include `api/get.html` along with the target include file path
 
 {% include api/get.html %}
 
-**Example**
-
-```liquid
-{% raw %}{% include api/get.html file="simulibros/progress.html" %}{% endraw %}
-```
-
-{% include api/get.html file="simulibros/progress.html" %}
-
-**Example**
-
-```liquid
-{% raw %}{% include simulibros/progress.html %}{% endraw %}
-```
-
-{% include simulibros/progress.html %}
+## Unslug
 
 {% include api/get.html file="filters/unslug.html" %}
 
@@ -107,7 +93,7 @@ To render an api, include `api/get.html` along with the target include file path
 - `datetime` is **obsolete**
 - `datetime-local` you can set `min="2017-06-01T08:30" max="2017-06-30T16:30"`
 - `email` is validated at submit
-- Validity:  
+- Validity:
   ```css
   input:invalid+span:after {
     position: absolute; content: '✖';
@@ -133,3 +119,13 @@ To render an api, include `api/get.html` along with the target include file path
   <input type="url">
   <input type="submit" value="ok">
 </form>
+
+## Progress
+
+```liquid
+{% raw %}{% include simulibros/progress.html %}{% endraw %}
+```
+
+{% include simulibros/progress.html %}
+
+{% include api/get.html file="simulibros/progress.html" %}

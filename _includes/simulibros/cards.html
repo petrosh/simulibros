@@ -3,7 +3,7 @@
 {%- for item in list -%}
   <div class="card-body">
     <div class="row">
-      <div class="pr-0{% if item.image_url %} col-2{% endif %}">{% if item.image_url %}
+      <div class="pr-0{% if item.image_url %} col-auto{% endif %}">{% if item.image_url %}
       <img src="{{ item.image_url }}" alt="{{ item.title }}">{% endif %}</div>
       <div class="col">
         <div class="justify-box">
