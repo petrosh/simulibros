@@ -9,7 +9,6 @@
   {%- assign start_unix = item.start_reading | date: "%s" | divided_by: sensibility -%}
   {%- assign end_unix = item.end_reading | date: "%s" | divided_by: sensibility -%}
   {%- assign reading_time = end_unix | minus: start_unix | plus: year_start -%}
-  {%- assign label = reading_time | minus: year_start | divided_by: 86400.0 | round | append: " days" -%}
     <tr>
       <td>
         {% if item.image_url %}
@@ -17,11 +16,14 @@
         {% endif %}
       </td>
       <td>
-        <strong>{% if item.link %}<a href="{{ item.link }}">{{ item.title }}</a>{% else %}{{ item.title }}{% endif %}</strong>
+        {%- assign titolo = item.title | split: ' (' | first -%}
+        {%- assign check_serie = item.title | split: ' (' -%}
+        {% if check_serie.size > 1 %}{%- assign serie = check_serie | last | prepend: '(' -%}{% else %}{%- assign serie = '' -%}{% endif %}
+        <strong>{% if item.link %}<a href="{{ item.link }}">{{ titolo }}</a> <span class="font-weight-light">{{ serie }}</span>{% else %}{{ item.title }}{% endif %}</strong>
         <br>
         {{ item.author }} {% if item.year %}({{ item.year }}){% endif %}
         <br>
-        {% include simulibros/simple_progress.html item=item tooltip=label %}
+        {% include simulibros/simple_progress.html item=item %}
       </td>
     </tr>
     {% endfor %}

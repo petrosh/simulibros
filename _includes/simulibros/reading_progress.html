@@ -8,12 +8,13 @@
     {%- assign start_unix = item.start_reading | date: "%s" | divided_by: sensibility -%}
     {%- assign end_unix = item.end_reading | date: "%s" | divided_by: sensibility -%}
     {%- assign reading_time = end_unix | minus: start_unix | plus: year_start -%}
+    {% capture span_date %}{% include filters/condensed_date.html start=item.start_reading end=item.end_reading %}{% endcapture %}
     <div class="row">
       <div class="col-auto">
         <small data-toggle="tooltip" data-placement="top" data-html="true" title="<small>{% include filters/condensed_date.html start=item.start_reading end=item.end_reading %}</small>">Readed in {{ reading_time | minus: year_start | divided_by: 86400.0 | round }} days</small>
       </div>
       <div class="col">
-        {%- include simulibros/progress.html min=year_start max=year_end now=reading_time offset=start_unix -%}
+        {%- include simulibros/progress.html min=year_start max=year_end now=reading_time offset=start_unix tooltip=span_date -%}
       </div>
     </div>
   {%- else -%}
