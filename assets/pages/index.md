@@ -22,11 +22,3 @@ permalink: /
 ```
 
 {% include simulibros/cards.html list=site.data.libros %}
-
-# List
-
-```liquid
-{% raw %}{% include simulibros/list.html list=site.data.libros %}{% endraw %}
-```
-
-{% include simulibros/list.html list=site.data.libros %}

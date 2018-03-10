@@ -23,12 +23,6 @@
         <br>
         {% include simulibros/simple_progress.html item=item tooltip=label %}
       </td>
-      <td>
-        <a href="{{ item.link }}" class="edit" data-file="libros.yml" data-id="{{ item.id }}">Edit</a>
-      </td>
-      <td>
-        <a href="{{ item.link }}" class="remove" data-file="libros.yml" data-id="{{ item.id }}">Remove</a>
-      </td>
     </tr>
     {% endfor %}
   </tbody>

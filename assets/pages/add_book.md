@@ -13,3 +13,11 @@ Version: `{{ site.github.build_revision | slice: 0, 7 }}`
 ```
 
 {% include simulibros/form.html data_file='libros.yml' %}
+
+# List
+
+```liquid
+{% raw %}{% include simulibros/list.html list=site.data.libros %}{% endraw %}
+```
+
+{% include simulibros/list.html list=site.data.libros %}
