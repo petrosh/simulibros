@@ -20,6 +20,6 @@ If `string` is all lowercase will be capitalized.
 {%- for word in words -%}
   {%- assign word_lowercase = word | downcase -%}
   {%- if word == word_lowercase -%}
-{{ word | capitalize }}&nbsp;{%- else -%}
-{{ word }}&nbsp;{%- endif -%}
+{{ word | capitalize }}{%- unless forloop.last -%} {%- endunless -%}{%- else -%}
+{{ word }}{%- unless forloop.last -%} {%- endunless -%}{%- endif -%}
 {%- endfor -%}
