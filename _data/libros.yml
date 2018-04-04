@@ -308,3 +308,14 @@
   start_reading: '2016-12-28'
   end_reading: '2017-01-28'
   id: 1522843352
+-
+  title: 'Hull Zero Three'
+  author: 'Greg Bear'
+  image_url: 'https://images.gr-assets.com/books/1344271037m/7975415.jpg'
+  year: 2010
+  link: 'https://www.goodreads.com/book/show/7975415'
+  publisher: Orbit
+  rating: 3.37
+  start_reading: '2016-12-11'
+  end_reading: '2016-12-28'
+  id: 1522843430
