@@ -329,3 +329,13 @@
   start_reading: '2016-10-17'
   end_reading: '2016-12-11'
   id: 1522843591
+-
+  title: 'A Second Chance at Eden'
+  author: 'Peter F. Hamilton'
+  image_url: 'https://images.gr-assets.com/books/1347624747l/45257.jpg'
+  year: 1998
+  link: 'https://www.goodreads.com/book/show/45257.A_Second_Chance_at_Eden'
+  rating: 4.01
+  start_reading: '2016-09-11'
+  end_reading: '2016-10-17'
+  id: 1522843673
