@@ -3,7 +3,7 @@
 {%- assign start_month = include.start | date: "%b" -%}
 {%- assign end_month = include.end | date: "%b" -%}
 {%- if start_year != end_year -%}
-  {{ include.start | date_to_string }}<br>{{ include.end | date_to_string }}
+  {{ include.start | date_to_string }} / {{ include.end | date_to_string }}
 {%- else -%}
   {%- if start_month != end_month -%}
     {{ include.start | date: "%-d %b" }} / {{ include.end | date: "%-d %b %Y" }}
