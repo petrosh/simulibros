@@ -359,3 +359,13 @@
   start_reading: '2016-04-26'
   end_reading: '2016-07-29'
   id: 1522843810
+-
+  title: 'Pandora''s Star'
+  author: 'Peter F. Hamilton'
+  image_url: 'https://images.gr-assets.com/books/1440699949l/45252.jpg'
+  year: 2004
+  link: 'https://www.goodreads.com/book/show/45252'
+  rating: 4.24
+  start_reading: '2016-02-06'
+  end_reading: '2016-04-26'
+  id: 1522843840
