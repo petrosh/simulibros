@@ -319,3 +319,13 @@
   start_reading: '2016-12-11'
   end_reading: '2016-12-28'
   id: 1522843430
+-
+  title: 'The Algebraist'
+  author: 'Iain M. Banks'
+  image_url: 'https://images.gr-assets.com/books/1388530602l/12009.jpg'
+  year: 2004
+  link: 'https://www.goodreads.com/book/show/12009.The_Algebraist'
+  rating: 4
+  start_reading: '2016-10-17'
+  end_reading: '2016-12-11'
+  id: 1522843591
