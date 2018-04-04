@@ -297,3 +297,14 @@
   start_reading: '2018-03-19'
   end_reading: '2018-04-03'
   id: 1521548832
+-
+  title: Aurora
+  author: 'Kim Stanley Robinson'
+  image_url: 'https://images.gr-assets.com/books/1436300570l/23197269.jpg'
+  year: 2015
+  link: 'https://www.goodreads.com/book/show/23197269'
+  publisher: Orbit
+  rating: 3.73
+  start_reading: '2016-12-28'
+  end_reading: '2017-01-28'
+  id: 1522843352
