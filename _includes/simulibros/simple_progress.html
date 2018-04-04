@@ -7,10 +7,16 @@
     {%- assign year_end = year | prepend: "31-12-" | date: "%s" | divided_by: sensibility -%}
     {%- assign start_unix = item.start_reading | date: "%s" | divided_by: sensibility -%}
     {%- assign end_unix = item.end_reading | date: "%s" | divided_by: sensibility -%}
+    {%- if end_unix > year_end -%}
+      {%- assign end_graph = year_end -%}
+    {%- else -%}
+      {%- assign end_graph = end_unix -%}
+    {%- endif -%}
     {%- assign reading_time = end_unix | minus: start_unix | plus: year_start -%}
+    {%- assign reading_graph = end_graph | minus: start_unix | plus: year_start -%}
     {% capture span_date %}{% include filters/condensed_date.html start=item.start_reading end=item.end_reading %}{% endcapture %}
     {%- assign label = reading_time | minus: year_start | divided_by: 86400.0 | round | append: " days: " | append: span_date -%}
-    {%- include simulibros/progress.html min=year_start max=year_end now=reading_time offset=start_unix tooltip=label -%}
+    {%- include simulibros/progress.html min=year_start max=year_end now=reading_graph offset=start_unix tooltip=label -%}
   {%- else -%}
   <span class="badge badge-primary mb-2">Reading</span><small> since {{ item.start_reading | date: "%-d %b %Y" }}</small>
   {%- endif -%}
