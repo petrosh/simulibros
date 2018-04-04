@@ -349,3 +349,13 @@
   start_reading: '2016-07-30'
   end_reading: '2016-09-11'
   id: 1522843765
+-
+  title: 'Judas Unchained'
+  author: 'Peter F. Hamilton'
+  image_url: 'https://images.gr-assets.com/books/1316501189l/45244.jpg'
+  year: 2005
+  link: 'https://www.goodreads.com/book/show/45244'
+  rating: 4.3
+  start_reading: '2016-04-26'
+  end_reading: '2016-07-29'
+  id: 1522843810
