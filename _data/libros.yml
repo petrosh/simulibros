@@ -487,3 +487,13 @@
   rating: 4.19
   start_reading: '2018-07-16'
   id: 1531830417
+-
+  title: 'A Fire Upon the Deep (Zones of Thought, #1)'
+  author: 'Vernor Vinge'
+  image_url: 'https://images.gr-assets.com/books/1333915005l/77711.jpg'
+  year: 1992
+  link: 'https://www.goodreads.com/book/show/77711'
+  rating: 4.13
+  start_reading: '2018-05-15'
+  end_reading: '2018-07-16'
+  id: 1531830596
