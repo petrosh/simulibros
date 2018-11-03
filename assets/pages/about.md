@@ -26,6 +26,8 @@ input_types:
 
 ## Entry
 
+[`_data/libros.yml`]({% include filters/github_link.html file="_data/libros.yml" %})
+
 ```yml
 -
   title: 'Binti (Binti, #1)'
