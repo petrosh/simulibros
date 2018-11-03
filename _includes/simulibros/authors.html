@@ -6,7 +6,7 @@
 <dl class="row" data-widget="list-manager">
   <dt class="col-3 text-right">{{ item.name }}</dt>
   <dt class="col-1 text-center">{{ item.items.size }}</dt>
-  <dd class="col"><ul class="mb-0">{%- for book in sorted_list -%}{%- if book.author == item.name -%}<li>{{ book.title }}</li>{%- endif -%}{%- endfor -%}</ul></dd>
+  <dd class="col"><ol class="mb-0">{%- for book in sorted_list -%}{%- if book.author == item.name -%}<li>{{ book.title }}</li>{%- endif -%}{%- endfor -%}</ol></dd>
 </dl>
     {% endif %}
   {%- endfor -%}
