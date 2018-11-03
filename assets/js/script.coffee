@@ -13,6 +13,7 @@ BUILD_REVISION = '{{ site.github.build_revision }}'
 {% include_relative any_theme/simulibros.coffee %}
 {% include_relative any_theme/yml_render.coffee %}
 {% include_relative any_theme/remove_edit.coffee %}
+{% include_relative any_theme/check_build.coffee %}
 
 # Enable tooltips
 $ '[data-toggle*="tooltip"]'
