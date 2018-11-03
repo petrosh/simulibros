@@ -24,6 +24,21 @@ input_types:
 * toc
 {:toc}
 
+## Entry
+
+```yml
+-
+  title: 'Binti (Binti, #1)'
+  author: 'Nnedi Okorafor'
+  image_url: 'https://images.gr-assets.com/books/1433804020l/25667918.jpg'
+  year: 2015
+  link: 'https://www.goodreads.com/book/show/25667918'
+  rating: 4.02
+  start_reading: '2017-11-23'
+  end_reading: '2017-11-26'
+  id: 1518025725
+```
+
 ## Apis
 
 Add this snippet at the top of files in any `/_includes` file and fill it in with the api.

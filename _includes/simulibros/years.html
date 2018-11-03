@@ -1,0 +1,31 @@
+{%- assign list = include.list | group_by_exp: "item",
+"item.end_reading | date: '%Y'" -%}
+{%- assign sorted_list = include.list | sort: "start_reading" -%}
+{%- assign min_year = 10000 -%}
+{%- assign max_year = 0 -%}
+{%- assign reading = nil -%}
+{%- for item in list -%}
+  {%- assign name = item.name | plus:0 -%}
+  {% if name < min_year and name != 0 %}{%- assign min_year = name -%}{% endif %}
+  {% if name > max_year %}{%- assign max_year = name -%}{% endif %}
+  {% if item.name == nil %}{%- assign reading = item -%}{% endif %}
+{%- endfor -%}
+{% if reading %}
+{%- assign current_year = site.time | date: "%Y" | plus: 0 -%}
+<dl class="row" data-widget="list-manager">
+  <dt class="col-3 text-right">Reading</dt>
+  <dt class="col-1 text-center">{{ reading.items.size }}</dt>
+  <dd class="col"><ol class="mb-0">{%- for book in sorted_list -%}{%- assign end_year = book.end_reading -%}{%- if end_year == nil -%}<li><strong>{{ book.author }}:</strong> {{ book.title }}</li>{%- endif -%}{%- endfor -%}</ol></dd>
+</dl>
+{% endif %}
+{%- for year in (min_year..max_year) reversed -%}
+  {%- for check_year in list -%}
+    {%- assign numeric_year = check_year.name | plus: 0 -%}
+    {% if numeric_year == year %}{%- assign data = check_year.items -%}{% endif %}
+  {%- endfor -%}
+  <dl class="row" data-widget="list-manager">
+    <dt class="col-3 text-right">{{ year }}</dt>
+    <dt class="col-1 text-center">{{ data.size }}</dt>
+    <dd class="col"><ol class="mb-0">{%- for book in sorted_list -%}{%- assign end_year = book.end_reading | date: "%Y" | plus: 0 -%}{%- if end_year == year -%}<li><strong>{{ book.author }}:</strong> {{ book.title }}</li>{%- endif -%}{%- endfor -%}</ol></dd>
+  </dl>
+{%- endfor -%}
