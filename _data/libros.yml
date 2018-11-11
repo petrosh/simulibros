@@ -569,3 +569,12 @@
   start_reading: '2018-10-10'
   end_reading: '2018-11-03'
   id: 1539189441
+-
+  title: 'The Singularity Trap'
+  author: 'Dennis E. Taylor'
+  image_url: 'https://images.gr-assets.com/books/1526512075l/35269854.jpg'
+  year: 2018
+  link: 'https://www.goodreads.com/book/show/35269854'
+  rating: 4.06
+  start_reading: '2018-11-04'
+  id: 1541944196
