@@ -579,3 +579,12 @@
   start_reading: '2018-11-04'
   end_reading: '2018-11-24'
   id: 1541944196
+-
+  title: 'Dark Orbit'
+  author: 'Carolyn Ives Gilman'
+  image_url: 'https://images.gr-assets.com/books/1418148820l/23168784.jpg'
+  year: 2015
+  link: 'https://www.goodreads.com/book/show/23168784'
+  rating: 3.67
+  start_reading: '2018-11-24'
+  id: 1543156935
