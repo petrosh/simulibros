@@ -599,3 +599,13 @@
   start_reading: '2018-12-08'
   end_reading: '2019-01-02'
   id: 1544291356
+-
+  title: 'Skyward (Skyward, #1)'
+  author: 'Brandon Sanderson'
+  image_url: 'https://images.gr-assets.com/books/1531845177l/36642458.jpg'
+  year: 2018
+  link: 'https://www.goodreads.com/book/show/36642458'
+  rating: 4.54
+  start_reading: '2019-01-03'
+  end_reading: '2019-01-19'
+  id: 1548003180
