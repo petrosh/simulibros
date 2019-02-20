@@ -619,3 +619,12 @@
   start_reading: '2019-01-20'
   end_reading: '2019-02-18'
   id: 1550657017
+-
+  title: 'Dragon''s Egg / Starquake'
+  author: 'Robert L. Forward'
+  image_url: 'https://images.gr-assets.com/books/1262289813l/420429.jpg'
+  year: 1994
+  link: 'https://www.goodreads.com/book/show/420429'
+  rating: 4.36
+  start_reading: '2019-02-19'
+  id: 1550657116
