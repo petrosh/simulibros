@@ -639,3 +639,12 @@
   start_reading: '2019-03-05'
   end_reading: '2019-03-15'
   id: 1552739686
+-
+  title: Fiasco
+  author: 'Stanisław Lem'
+  image_url: 'http://ia800606.us.archive.org/zipview.php?zip=/9/items/olcovers11/olcovers11-L.zip&amp;file=116147-L.jpg'
+  year: 1987
+  link: 'https://openlibrary.org/books/OL7365935M'
+  publisher: 'Alianza Editorial Sa'
+  start_reading: '2019-03-15'
+  id: 1552739844
