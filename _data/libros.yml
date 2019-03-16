@@ -629,3 +629,13 @@
   start_reading: '2019-02-19'
   end_reading: '2019-03-05'
   id: 1550657116
+-
+  title: 'Solar Lottery'
+  author: 'Philip K. Dick'
+  image_url: 'http://ia800609.us.archive.org/zipview.php?zip=/19/items/olcovers74/olcovers74-L.zip&amp;file=744737-L.jpg'
+  year: 1955
+  link: 'https://openlibrary.org/books/OL3685550M'
+  publisher: 'Maxwell Macmillan Canada'
+  start_reading: '2019-03-05'
+  end_reading: '2019-03-15'
+  id: 1552739686
