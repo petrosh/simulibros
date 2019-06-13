@@ -709,3 +709,12 @@
   start_reading: '2019-06-08'
   end_reading: '2019-06-12'
   id: 1560015801
+-
+  title: 'Losing Mars'
+  author: 'Peter Cawdron'
+  image_url: 'https://images.gr-assets.com/books/1537481571l/41954351.jpg'
+  year: 2018
+  link: 'https://www.goodreads.com/book/show/41954351'
+  rating: 4.24
+  start_reading: '2019-06-13'
+  id: 1560441861
