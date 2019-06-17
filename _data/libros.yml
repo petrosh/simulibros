@@ -719,3 +719,12 @@
   start_reading: '2019-06-13'
   end_reading: '2019-06-16'
   id: 1560441861
+-
+  title: 'Martian Time-Slip'
+  author: 'Philip K. Dick'
+  image_url: 'https://images.gr-assets.com/books/1426354158l/697251.jpg'
+  year: 1964
+  link: 'https://www.goodreads.com/book/show/697251'
+  rating: 3.77
+  start_reading: '2019-06-16'
+  id: 1560776350
