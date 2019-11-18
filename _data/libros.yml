@@ -843,3 +843,12 @@
   start_reading: '2019-10-21'
   end_reading: '2019-11-09'
   id: 1571755937
+-
+  title: 3zekiel
+  author: 'Peter Cawdron'
+  image_url: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1564875154l/47516142._SY475_.jpg'
+  year: 2019
+  link: 'https://www.goodreads.com/book/show/47516142'
+  rating: 4.28
+  start_reading: '2019-11-10'
+  id: 1574108785
