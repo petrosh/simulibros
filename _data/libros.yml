@@ -873,3 +873,12 @@
   start_reading: '2019-12-21'
   end_reading: '2019-12-26'
   id: 1576953797
+-
+  title: Recursion
+  author: 'Blake Crouch'
+  image_url: 'https://user-images.githubusercontent.com/5657516/72219493-091bfa00-3547-11ea-9b62-c6c45de4163a.jpeg'
+  year: 2019
+  link: 'https://www.goodreads.com/book/show/42046112'
+  rating: 4.2
+  start_reading: '2019-12-26'
+  id: 1578835413
