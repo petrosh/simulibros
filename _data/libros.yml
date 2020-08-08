@@ -1006,3 +1006,12 @@
   start_reading: '2020-07-18'
   end_reading: '2020-08-07'
   id: 1595188229
+-
+  title: 'But The Stars'
+  author: 'Peter Cawdron'
+  image_url: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1581594898l/51225380._SX98_.jpg'
+  year: 2020
+  link: 'https://www.goodreads.com/book/show/51225380'
+  rating: 4.44
+  start_reading: '2020-08-07'
+  id: 1596875391
