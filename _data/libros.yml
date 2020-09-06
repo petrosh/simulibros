@@ -1026,3 +1026,12 @@
   start_reading: '2020-08-18'
   end_reading: '2020-09-04'
   id: 1597833061
+-
+  title: Exile
+  author: 'Glynn Stewart'
+  image_url: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1524281986l/39905061._SY475_.jpg'
+  year: 2018
+  link: 'https://www.goodreads.com/book/show/39905061'
+  rating: 4.28
+  start_reading: '2020-09-05'
+  id: 1599421441
