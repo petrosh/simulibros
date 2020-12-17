@@ -10,8 +10,8 @@ BUILD_REVISION = '{{ site.github.build_revision }}'
 {% include_relative any_theme/modal_message.coffee %}
 {% include_relative any_theme/form_loading.coffee %}
 {% include_relative any_theme/login.coffee %}
-{% include_relative any_theme/simulibros.coffee %}
 {% include_relative any_theme/yml_render.coffee %}
+{% include_relative any_theme/simulibros.coffee %}
 {% include_relative any_theme/remove_edit.coffee %}
 {% include_relative any_theme/check_build.coffee %}
 
