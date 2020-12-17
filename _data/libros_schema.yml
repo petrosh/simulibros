@@ -7,7 +7,10 @@
     name: Search Openlibrary
     type: submit
   -
-    name: Search Goodreads
+    name: Get updates_rss 69343690
+    type: submit
+  -
+    name: Search Goodreads [deprecated]
     type: submit
   -
     name: Reset

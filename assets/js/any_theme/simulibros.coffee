@@ -7,12 +7,14 @@ libros = (div) ->
   author = form.find '[aria-label="author"]'
   submit_ol = form.find '[aria-label="search_openlibrary"]'
   submit_gr = form.find '[aria-label="search_goodreads"]'
+  submit_rss = form.find '[aria-label="get_updates_rss_69343690"]'
   reset = form.find '[type="reset"]'
   results = form.find '.search-results'
   fieldset = form.find 'fieldset'
   goodreads = $ form.next '.goodreads-form'
   goodreads_key = $ '#goodreadsKey'
   cors_url = "https://cors-anywhere.herokuapp.com/"
+  new_cors = "https://afternoon-hollows-35729.herokuapp.com/"
   search_function = (e) ->
     if storage.get 'goodreads_key' then search_gr(e) else search_ol(e)
   $('#submitGoodreads').click (e) ->
@@ -20,6 +22,22 @@ libros = (div) ->
     if goodreads_key.val()
       storage.set 'goodreads_key', goodreads_key.val()
       search_function = (e) -> search_gr(e)
+    true
+  submit_rss.click (e) ->
+    e.preventDefault()
+    console.log 'parse rss'
+    $.ajax {
+      url: "#{new_cors}https://www.goodreads.com/user/updates_rss/69343690"
+      headers: 'Access-Control-Allow-Origin': '*'
+      dataType: 'xml'
+      accepts: {
+        xml:"application/rss+xml"
+      }
+      crossDomain: true
+      success: (data) ->
+        console.log data.responseData.feed
+        true
+    }
     true
   submit_ol.click (e) ->
     e.preventDefault()
