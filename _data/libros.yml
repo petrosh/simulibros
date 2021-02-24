@@ -1127,3 +1127,12 @@
   start_reading: '2021-02-05'
   end_reading: '2021-02-22'
   id: 1612610144
+-
+  title: 'Starship Sakira (Delphi in Space, #1)'
+  author: 'Bob Blanton'
+  image_url: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1572986253l/48714547._SY475_.jpg'
+  year: 2019
+  link: 'https://www.goodreads.com/book/show/48714547-starship-sakira'
+  rating: 4.26
+  start_reading: '2021-02-23'
+  id: 1614168374
