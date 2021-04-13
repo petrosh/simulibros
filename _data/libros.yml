@@ -1168,3 +1168,13 @@
   start_reading: '2021-04-04'
   end_reading: '2021-04-12'
   id: 1617630007
+-
+  title: 'Lockdown Tales '
+  author: 'Neal Asher'
+  image_url: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1605871773l/55960949._SX318_.jpg'
+  year: 2020
+  link: 'https://www.goodreads.com/book/show/55960949-lockdown-tales'
+  publisher: 'Newcon Press'
+  rating: 4.53
+  start_reading: '2021-04-12'
+  id: 1618329875
