@@ -1243,3 +1243,12 @@
   start_reading: '2021-07-29'
   end_reading: '2021-08-06'
   id: 1628425631
+-
+  title: 'The Moon Is a Harsh Mistress '
+  author: 'Robert A. Heinlein'
+  image_url: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1525741045l/40058335._SY475_.jpg'
+  year: 1966
+  link: 'https://www.goodreads.com/book/show/40058335-the-moon-is-a-harsh-mistress'
+  rating: 4.14
+  start_reading: '2021-08-08'
+  id: 1628496031
