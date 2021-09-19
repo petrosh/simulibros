@@ -1253,3 +1253,12 @@
   start_reading: '2021-08-08'
   end_reading: '2021-08-29'
   id: 1628496031
+-
+  title: 'Ilium (Ilium, #1)'
+  author: 'Dan Simmons'
+  image_url: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1390894862l/3973.jpg'
+  year: 2005
+  link: 'https://www.goodreads.com/book/show/3973.Ilium'
+  rating: 4.02
+  start_reading: '2021-08-30'
+  id: 1632070480
