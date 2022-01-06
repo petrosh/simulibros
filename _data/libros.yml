@@ -1350,3 +1350,12 @@
   start_reading: '2021-12-06'
   end_reading: '2022-01-05'
   id: 1638963397
+-
+  title: 'Now Wait for Last Year '
+  author: 'Philip K. Dick'
+  image_url: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1386923678l/216378.jpg'
+  year: 1993
+  link: 'https://www.goodreads.com/book/show/216378.Now_Wait_for_Last_Year?ac=1'
+  rating: 3.89
+  start_reading: '2022-01-05'
+  id: 1641480026
