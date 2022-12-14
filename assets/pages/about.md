@@ -24,6 +24,16 @@ input_types:
 * toc
 {:toc}
 
+## Data
+
+{% assign start = site.data.libros | first | map: 'start_reading' | first | date: "%s" %}
+{% assign end = site.data.libros | last | map: 'start_reading' | first | date: "%s" %}
+{% assign seconds = end | minus: start %}
+{% assign months = seconds | divided_by: 2629800.0 %}
+- 📖 {{ site.data.libros.size }} books
+- 📆 {{ months | slice: 0, 4 }} months
+- 📚 {{ site.data.libros.size | divided_by: months | slice: 0, 3 }} books/month
+
 ## Entry
 
 [`_data/libros.yml`]({% include filters/github_link.html file="_data/libros.yml" %})
