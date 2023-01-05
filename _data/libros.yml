@@ -1611,3 +1611,13 @@
   start_reading: '2022-11-28'
   end_reading: '2022-12-21'
   id: 1669818602
+-
+  title: 'The Gods Themselves'
+  author: 'Isaac Asimov'
+  image_url: 'https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1351076141l/41821.jpg'
+  year: 1972
+  link: 'https://www.goodreads.com/book/show/41821.The_Gods_Themselves'
+  publisher: Millenium
+  rating: 4.09
+  start_reading: '2023-01-03'
+  id: 1672932387
