@@ -1622,3 +1622,13 @@
   start_reading: '2023-01-03'
   end_reading: '2023-01-27'
   id: 1672932387
+-
+  title: 'The Stars My Destination'
+  author: 'Alfred Bester'
+  image_url: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1278705639i/1408168.jpg'
+  year: 1956
+  link: 'https://www.goodreads.com/book/show/333867.The_Stars_My_Destination'
+  publisher: Vintage
+  rating: 4.08
+  start_reading: '2023-01-28'
+  id: 1675004220
