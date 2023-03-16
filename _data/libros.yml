@@ -1644,3 +1644,13 @@
   start_reading: '2023-02-13'
   end_reading: '2023-04-11'
   id: 1678986259
+-
+  title: Gateway
+  author: 'Frederik Pohl'
+  image_url: 'https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1441698400i/218427.jpg'
+  year: 1977
+  link: 'https://www.goodreads.com/book/show/218427.Gateway'
+  publisher: 'Del Rey'
+  rating: 4.06
+  start_reading: '2023-02-14'
+  id: 1678986349
